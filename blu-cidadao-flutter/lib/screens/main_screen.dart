@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'notifications_screen.dart';
 import 'profile_screen.dart';
+import 'package:provider/provider.dart';
+import '../theme_provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -55,9 +57,7 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     const CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage(
-                        'assets/avatar.png',
-                      ), // substitua pela imagem real se quiser
+                      backgroundImage: AssetImage('assets/avatar.png'),
                       backgroundColor: Colors.grey,
                     ),
                     const SizedBox(width: 12),
@@ -102,65 +102,49 @@ class _MainScreenState extends State<MainScreen> {
                 leading: const Icon(Icons.info_outline),
                 title: const Text('Sobre'),
                 onTap: () {
-                  // Pode abrir uma página com informações do app futuramente
+                  // abrir página futura
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.support_agent),
                 title: const Text('Suporte'),
                 onTap: () {
-                  // Pode abrir formulário ou contato com suporte
+                  // abrir suporte futuro
                 },
               ),
+
               const Spacer(),
 
               const Divider(),
+
+              // Switch de tema escuro claro no rodapé
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
-                    const Icon(Icons.color_lens),
-                    const SizedBox(width: 8),
-                    const Text('Tema:'),
+                    const Icon(Icons.brightness_6),
+                    const SizedBox(width: 12),
+                    const Text('Modo Escuro'),
                     const Spacer(),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Aqui futuramente pode alternar entre claro/escuro
+                    Consumer<ThemeProvider>(
+                      builder: (context, themeProvider, _) {
+                        return Switch(
+                          value: themeProvider.isDarkMode,
+                          onChanged: (value) {
+                            themeProvider.toggleTheme(value);
+                          },
+                        );
                       },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[200],
-                        foregroundColor: Colors.black,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 4,
-                        ),
-                      ),
-                      child: const Text('Claro'),
-                    ),
-                    const SizedBox(width: 8),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Aqui futuramente pode alternar entre claro/escuro
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 4,
-                        ),
-                      ),
-                      child: const Text('Escuro'),
                     ),
                   ],
                 ),
               ),
+
               const SizedBox(height: 20),
             ],
           ),
         ),
       ),
-
       body: _screens[_selectedIndex],
     );
   }
