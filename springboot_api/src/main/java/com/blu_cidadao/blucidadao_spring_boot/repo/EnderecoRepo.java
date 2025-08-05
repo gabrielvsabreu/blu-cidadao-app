@@ -1,5 +1,12 @@
 package com.blu_cidadao.blucidadao_spring_boot.repo;
 
-public class EnderecoRepo {
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.blu_cidadao.blucidadao_spring_boot.model.Endereco;
+
+
+public interface EnderecoRepo extends JpaRepository<Endereco, Integer> {
+	
 }

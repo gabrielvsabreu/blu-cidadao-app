@@ -1,5 +1,12 @@
 package com.blu_cidadao.blucidadao_spring_boot.repo;
 
-public class RegistrarOuvidoriaRepo {
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.blu_cidadao.blucidadao_spring_boot.model.RegistrarOuvidoria;
+
+
+public interface RegistrarOuvidoriaRepo extends JpaRepository<RegistrarOuvidoria, Integer> {
+	
 }
