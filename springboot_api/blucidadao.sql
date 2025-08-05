@@ -62,14 +62,3 @@ FOREIGN KEY (id_ouvidoria) REFERENCES ouvidoria(id_ouvidoria),
 FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
 );
 
-CREATE TABLE escolas_blumenau (
- id_escola SERIAL PRIMARY KEY,
- codigo_inep VARCHAR(20) UNIQUE,
- nome VARCHAR(255) NOT NULL,
- rede VARCHAR(50),
- endereco VARCHAR(255),
- bairro VARCHAR(100),
- municipio VARCHAR(100) DEFAULT 'Blumenau',
- uf VARCHAR(2) DEFAULT 'SC'
- PRIMARY KEY (id_escola)
-);
