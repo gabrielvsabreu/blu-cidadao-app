@@ -63,20 +63,13 @@ FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
 );
 
 CREATE TABLE escolas_blumenau (
- id_escola INTEGER AUTO_INCREMENT,
- nome VARCHAR(150) NOT NULL,
- tipo VARCHAR(50),              -- Ex: Fundamental, Médio, Infantil
- rede VARCHAR(50),              -- Ex: Municipal, Estadual, Particular
- cep VARCHAR(10),
- rua VARCHAR(100),
- numero VARCHAR(10),
- bairro VARCHAR(100),
- complemento VARCHAR(100),
- cidade VARCHAR(100) DEFAULT 'Blumenau',`blu-cidadao`
- estado VARCHAR(50) DEFAULT 'SC',
- pais VARCHAR(100) DEFAULT 'Brasil',
- telefone VARCHAR(20),
- email VARCHAR(100),
+ id_escola SERIAL PRIMARY KEY,
  codigo_inep VARCHAR(20) UNIQUE,
+ nome VARCHAR(255) NOT NULL,
+ rede VARCHAR(50),
+ endereco VARCHAR(255),
+ bairro VARCHAR(100),
+ municipio VARCHAR(100) DEFAULT 'Blumenau',
+ uf VARCHAR(2) DEFAULT 'SC'
  PRIMARY KEY (id_escola)
 );
