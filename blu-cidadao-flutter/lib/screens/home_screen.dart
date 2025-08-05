@@ -14,94 +14,96 @@ class HomeScreen extends StatelessWidget {
         foregroundColor: Colors.black,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Buscar serviço...',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+      body: Scrollbar(
+        thumbVisibility: true,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Buscar serviço...',
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Serviços disponíveis',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Column(
+                  children: const [
+                    ServiceTile(
+                      title: 'Emergência',
+                      subtitle: 'Contato com Polícia, Bombeiros ou SAMU via chat',
+                      icon: Icons.warning_amber_rounded,
+                      color: Colors.red,
+                    ),
+                    ServiceTile(
+                      title: 'Veículos e Condutores',
+                      subtitle: 'Habilitação, veículos e infrações',
+                      icon: Icons.directions_car,
+                      color: Colors.deepPurple,
+                    ),
+                    ServiceTile(
+                      title: 'Documentos',
+                      subtitle: 'Emitir documentos, agendar serviços e tirar dúvidas',
+                      icon: Icons.description,
+                      color: Colors.blueGrey,
+                    ),
+                    ServiceTile(
+                      title: 'Agendamento de Serviço',
+                      subtitle: 'Agende e acompanhe seus atendimentos',
+                      icon: Icons.calendar_month,
+                      color: Colors.indigo,
+                    ),
+                    ServiceTile(
+                      title: 'Educação',
+                      subtitle: 'Lista de escolas municipais e suas informações',
+                      icon: Icons.school,
+                      color: Colors.green,
+                    ),
+                    ServiceTile(
+                      title: 'Saúde',
+                      subtitle: 'Acesso a serviços e integração com o app Pronto',
+                      icon: Icons.local_hospital,
+                      color: Colors.pink,
+                    ),
+                    ServiceTile(
+                      title: 'Água, Esgoto e Energia',
+                      subtitle: 'Acesso a serviços da Samae e Celesc',
+                      icon: Icons.water_drop,
+                      color: Colors.teal,
+                    ),
+                    ServiceTile(
+                      title: 'Trabalho e Emprego',
+                      subtitle: 'Vagas disponíveis e outros serviços de emprego',
+                      icon: Icons.work,
+                      color: Colors.orange,
+                    ),
+                    ServiceTile(
+                      title: 'Notícias',
+                      subtitle: 'Acompanhe as últimas notícias da cidade',
+                      icon: Icons.article,
+                      color: Colors.cyan,
+                    ),
+                    ServiceTile(
+                      title: 'Ouvidoria',
+                      subtitle: 'Registrar, pesquisar e acompanhar manifestações',
+                      icon: Icons.record_voice_over,
+                      color: Colors.brown,
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-
-            const Text(
-              'Serviços disponíveis',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Expanded(
-              child: ListView(
-                children: const [
-                  ServiceTile(
-                    title: 'Emergência',
-                    subtitle: 'Contato com Polícia, Bombeiros ou SAMU via chat',
-                    icon: Icons.warning_amber_rounded,
-                    color: Colors.red,
-                  ),
-                  ServiceTile(
-                    title: 'Veículos e Condutores',
-                    subtitle: 'Habilitação, veículos e infrações',
-                    icon: Icons.directions_car,
-                    color: Colors.deepPurple,
-                  ),
-                  ServiceTile(
-                    title: 'Documentos',
-                    subtitle: 'Emitir documentos, agendar serviços e tirar dúvidas',
-                    icon: Icons.description,
-                    color: Colors.blueGrey,
-                  ),
-                  ServiceTile(
-                    title: 'Agendamento de Serviço',
-                    subtitle: 'Agende e acompanhe seus atendimentos',
-                    icon: Icons.calendar_month,
-                    color: Colors.indigo,
-                  ),
-                  ServiceTile(
-                    title: 'Educação',
-                    subtitle: 'Lista de escolas municipais e suas informações',
-                    icon: Icons.school,
-                    color: Colors.green,
-                  ),
-                  ServiceTile(
-                    title: 'Saúde',
-                    subtitle: 'Acesso a serviços e integração com o app Pronto',
-                    icon: Icons.local_hospital,
-                    color: Colors.pink,
-                  ),
-                  ServiceTile(
-                    title: 'Água, Esgoto e Energia',
-                    subtitle: 'Acesso a serviços da Samae e Celesc',
-                    icon: Icons.water_drop,
-                    color: Colors.teal,
-                  ),
-                  ServiceTile(
-                    title: 'Trabalho e Emprego',
-                    subtitle: 'Vagas disponíveis e outros serviços de emprego',
-                    icon: Icons.work,
-                    color: Colors.orange,
-                  ),
-                  ServiceTile(
-                    title: 'Notícias',
-                    subtitle: 'Acompanhe as últimas notícias da cidade',
-                    icon: Icons.article,
-                    color: Colors.cyan,
-                  ),
-                  ServiceTile(
-                    title: 'Ouvidoria',
-                    subtitle: 'Registrar, pesquisar e acompanhar manifestações',
-                    icon: Icons.record_voice_over,
-                    color: Colors.brown,
-                  ),
-                ],
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );
