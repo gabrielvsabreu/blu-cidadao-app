@@ -37,66 +37,62 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Expanded(
               child: ListView(
-                children: [
-                  const ServiceTile(
+                children: const [
+                  ServiceTile(
                     title: 'Emergência',
                     subtitle: 'Contato com Polícia, Bombeiros ou SAMU via chat',
                     icon: Icons.warning_amber_rounded,
                     color: Colors.red,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Veículos e Condutores',
                     subtitle: 'Habilitação, veículos e infrações',
                     icon: Icons.directions_car,
                     color: Colors.deepPurple,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Documentos',
                     subtitle: 'Emitir documentos, agendar serviços e tirar dúvidas',
                     icon: Icons.description,
                     color: Colors.blueGrey,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Agendamento de Serviço',
                     subtitle: 'Agende e acompanhe seus atendimentos',
                     icon: Icons.calendar_month,
                     color: Colors.indigo,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Educação',
                     subtitle: 'Lista de escolas municipais e suas informações',
                     icon: Icons.school,
                     color: Colors.green,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Saúde',
                     subtitle: 'Acesso a serviços e integração com o app Pronto',
                     icon: Icons.local_hospital,
                     color: Colors.pink,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Água, Esgoto e Energia',
                     subtitle: 'Acesso a serviços da Samae e Celesc',
                     icon: Icons.water_drop,
                     color: Colors.teal,
                   ),
-
-                  // Aqui está o único item com redirecionamento especial
                   ServiceTile(
                     title: 'Trabalho e Emprego',
                     subtitle: 'Vagas disponíveis e outros serviços de emprego',
                     icon: Icons.work,
                     color: Colors.orange,
-                    customRoute: MaterialPageRoute(builder: (context) => const JobsPage()),
                   ),
-
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Notícias',
                     subtitle: 'Acompanhe as últimas notícias da cidade',
                     icon: Icons.article,
                     color: Colors.cyan,
                   ),
-                  const ServiceTile(
+                  ServiceTile(
                     title: 'Ouvidoria',
                     subtitle: 'Registrar, pesquisar e acompanhar manifestações',
                     icon: Icons.record_voice_over,
