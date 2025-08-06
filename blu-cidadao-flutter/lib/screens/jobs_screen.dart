@@ -1,6 +1,5 @@
 import 'package:blu_cidadao/models/JobDetailPage.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/job_service.dart';
 
@@ -49,16 +48,6 @@ class _JobsPageState extends State<JobsPage> {
     } catch (e) {
       setState(() => isLoading = false);
       print('Erro ao buscar empregos: $e');
-    }
-  }
-
-  Future<void> _launchURL(String? url) async {
-    if (url != null && await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Não foi possível abrir o anúncio')),
-      );
     }
   }
 
@@ -131,7 +120,6 @@ class _JobsPageState extends State<JobsPage> {
                         final salary = job['salary_min'] != null
                             ? 'R\$${job['salary_min'].toString()}+'
                             : 'Salário não informado';
-                        final url = job['redirect_url'];
 
                         return Card(
                           margin: const EdgeInsets.symmetric(vertical: 8),
