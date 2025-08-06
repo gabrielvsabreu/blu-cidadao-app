@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
                     const CircleAvatar(
                       radius: 30,
                       backgroundImage: AssetImage('assets/avatar.png'),
-                      backgroundColor: Colors.grey,
+                      //backgroundColor: Colors.grey,
                     ),
                     const SizedBox(width: 12),
                     Column(

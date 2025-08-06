@@ -13,10 +13,10 @@ class Job {
 
   factory Job.fromJson(Map<String, dynamic> json) {
     return Job(
-      title: json['title'],
-      companyName: json['company_name'],
-      location: json['candidate_required_location'],
-      url: json['url'],
+      title: json['title'] ?? 'Sem título',
+      companyName: json['company']?['display_name'] ?? 'Empresa não informada',
+      location: json['location']?['display_name'] ?? 'Local não informado',
+      url: json['redirect_url'] ?? '',
     );
   }
 }
