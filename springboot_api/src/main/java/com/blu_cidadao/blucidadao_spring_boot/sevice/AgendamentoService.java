@@ -9,9 +9,17 @@ import org.springframework.stereotype.Service;
 import com.blu_cidadao.blucidadao_spring_boot.model.Agendamento;
 import com.blu_cidadao.blucidadao_spring_boot.repo.AgendamentoRepo;
 
+import com.blu_cidadao.blucidadao_spring_boot.util.ProtocoloGenerator;
+
 
 @Service
 public class AgendamentoService {
+
+	public void criarAgendamento(Agendamento agendamento) {
+		String protocolo = ProtocoloGenerator.gerarProtocolo(10);         
+		agendamento.setProtocolo(protocolo);      
+
+}
 
 	private final AgendamentoRepo repo;
 	
