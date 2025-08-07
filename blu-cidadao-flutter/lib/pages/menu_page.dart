@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'notifications_screen.dart';
-import 'profile_screen.dart';
+import 'notifications_page.dart';
+import 'profile_page.dart';
 import 'package:provider/provider.dart';
 import '../theme_provider.dart';
 
@@ -17,8 +17,8 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    NotificationsScreen(),
-    ProfileScreen(),
+    NotificationsPage(),
+    ProfilePage(),
   ];
 
   final List<String> _titles = [

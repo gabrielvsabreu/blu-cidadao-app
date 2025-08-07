@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class OuvidoriaScreen extends StatefulWidget {
-  const OuvidoriaScreen({super.key});
+class OuvidoriaPage extends StatefulWidget {
+  const OuvidoriaPage({super.key});
 
   @override
-  State<OuvidoriaScreen> createState() => _OuvidoriaScreenState();
+  State<OuvidoriaPage> createState() => _OuvidoriaPageState();
 }
 
-class _OuvidoriaScreenState extends State<OuvidoriaScreen> {
+class _OuvidoriaPageState extends State<OuvidoriaPage> {
   final _formKey = GlobalKey<FormState>();
   String? _tipoSelecionado;
   final _descricaoController = TextEditingController();
