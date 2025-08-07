@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +21,26 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 35,
-                  backgroundImage: AssetImage('assets/avatar.png'), // substitua com imagem real se quiser
+                  backgroundImage: AssetImage(
+                    'assets/avatar.png',
+                  ), // substitua com imagem real se quiser
                   backgroundColor: Colors.grey,
                 ),
                 const SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text('Gabriel Abreu',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text('gabriel@email.com', style: TextStyle(color: Colors.grey)),
+                    Text(
+                      'Gabriel Abreu',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'gabriel@email.com',
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ],
                 ),
               ],

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AgendamentoScreen extends StatefulWidget {
-  const AgendamentoScreen({super.key});
+class AgendamentoPage extends StatefulWidget {
+  const AgendamentoPage({super.key});
 
   @override
-  State<AgendamentoScreen> createState() => _AgendamentoScreenState();
+  State<AgendamentoPage> createState() => _AgendamentoPageState();
 }
 
-class _AgendamentoScreenState extends State<AgendamentoScreen> {
+class _AgendamentoPageState extends State<AgendamentoPage> {
   final _formKey = GlobalKey<FormState>();
   String? _setorSelecionado;
   DateTime? _dataSelecionada;

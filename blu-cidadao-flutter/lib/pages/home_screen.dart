@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'service_detail_screen.dart';
-import 'jobs_screen.dart';
+import 'jobs_page.dart';
+import 'emergencia_page.dart';
+import 'veiculos_page.dart';
+import 'documentos_page.dart';
+import 'agendamento_page.dart';
+import 'educacao_page.dart';
+import 'saude_page.dart';
+import 'infraestrutura_page.dart';
+import 'noticias_page.dart';
+import 'ouvidoria_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -68,74 +76,75 @@ class HomeScreen extends StatelessWidget {
                 child: ListView(
                   children: [
                     const SizedBox(height: 6),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Emergência',
-                      subtitle:
-                          'Contato com Polícia, Bombeiros ou SAMU via chat',
+                      subtitle: 'Contato com Polícia, Bombeiros ou SAMU via chat',
                       icon: Icons.warning_amber_rounded,
                       color: Colors.red,
+                      route: const EmergenciaPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Veículos e Condutores',
                       subtitle: 'Habilitação, veículos e infrações',
                       icon: Icons.directions_car,
                       color: Colors.deepPurple,
+                      route: const VeiculosPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Documentos',
-                      subtitle:
-                          'Emitir documentos, agendar serviços e tirar dúvidas',
+                      subtitle: 'Emitir documentos, agendar serviços e tirar dúvidas',
                       icon: Icons.description,
                       color: Colors.blueGrey,
+                      route: const DocumentosPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Agendamento de Serviço',
                       subtitle: 'Agende e acompanhe seus atendimentos',
                       icon: Icons.calendar_month,
                       color: Colors.indigo,
+                      route: const AgendamentoPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Educação',
-                      subtitle:
-                          'Lista de escolas municipais e suas informações',
+                      subtitle: 'Lista de escolas municipais e suas informações',
                       icon: Icons.school,
                       color: Colors.green,
+                      route: const EducacaoPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Saúde',
-                      subtitle:
-                          'Acesso a serviços e integração com o app Pronto',
+                      subtitle: 'Acesso a serviços e integração com o app Pronto',
                       icon: Icons.local_hospital,
                       color: Colors.pink,
+                      route: const SaudePage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Água, Esgoto e Energia',
                       subtitle: 'Acesso a serviços da Samae e Celesc',
                       icon: Icons.water_drop,
                       color: Colors.teal,
+                      route: const InfraestruturaPage(),
                     ),
                     ServiceTile(
                       title: 'Trabalho e Emprego',
-                      subtitle:
-                          'Vagas disponíveis e outros serviços de emprego',
+                      subtitle: 'Vagas disponíveis e outros serviços de emprego',
                       icon: Icons.work,
                       color: Colors.orange,
-                      customRoute: MaterialPageRoute(
-                        builder: (context) => const JobsPage(),
-                      ),
+                      route: const JobsPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Notícias',
                       subtitle: 'Acompanhe as últimas notícias da cidade',
                       icon: Icons.article,
                       color: Colors.cyan,
+                      route: const NoticiasPage(),
                     ),
-                    const ServiceTile(
+                    ServiceTile(
                       title: 'Ouvidoria',
-                      subtitle:
-                          'Registrar, pesquisar e acompanhar manifestações',
+                      subtitle: 'Registrar, pesquisar e acompanhar manifestações',
                       icon: Icons.record_voice_over,
                       color: Colors.brown,
+                      route: const OuvidoriaPage(),
                     ),
                     const SizedBox(height: 12),
                   ],
@@ -154,7 +163,7 @@ class ServiceTile extends StatelessWidget {
   final String subtitle;
   final IconData icon;
   final Color color;
-  final MaterialPageRoute? customRoute;
+  final Widget route;
 
   const ServiceTile({
     super.key,
@@ -162,7 +171,7 @@ class ServiceTile extends StatelessWidget {
     required this.subtitle,
     required this.icon,
     required this.color,
-    this.customRoute,
+    required this.route,
   });
 
   @override
@@ -192,22 +201,10 @@ class ServiceTile extends StatelessWidget {
         ),
         trailing: const Icon(Icons.chevron_right, color: Colors.grey),
         onTap: () {
-          Future.microtask(() {
-            if (context.mounted) {
-              Navigator.push(
-                context,
-                customRoute ??
-                    MaterialPageRoute(
-                      builder: (context) => ServiceDetailScreen(
-                        title: title,
-                        description: subtitle,
-                        icon: icon,
-                        color: color,
-                      ),
-                    ),
-              );
-            }
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => route),
+          );
         },
       ),
     );
