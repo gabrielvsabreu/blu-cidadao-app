@@ -1,3 +1,5 @@
+//Editor: Lucas
+
 package com.blu_cidadao.blucidadao_spring_boot.sevice;
 
 import java.util.List;
@@ -22,25 +24,25 @@ public class EnderecoService {
 	
 	// Create
 
-		public void inserirProduto (Endereco e) {
+		public void inserirEndereco (Endereco e) {
 			repo.save(e);
 		}
 		
 		// Read
 		
-		public List<Endereco> listarProdutos() {
+		public List<Endereco> listarEndereco() {
 			return repo.findAll();
 		}
 		
 		//Update
 		
-		public void atualizarProduto (Endereco e) {
+		public void atualizarEndereco (Endereco e) {
 			repo.save(e);
 		}
 		
 		// Delete
 		
-		public void deletarProduto(int id) {
+		public void deletarEndereco(int id) {
 			repo.deleteById(id);
 		}
 	

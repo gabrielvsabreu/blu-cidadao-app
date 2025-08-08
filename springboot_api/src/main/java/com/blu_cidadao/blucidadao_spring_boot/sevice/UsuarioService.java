@@ -1,3 +1,4 @@
+//Editor: Lucas
 package com.blu_cidadao.blucidadao_spring_boot.sevice;
 
 import java.util.List;
@@ -23,25 +24,25 @@ public class UsuarioService {
 	
 	// Create
 
-		public void inserirProduto (Usuario u) {
+		public void inserirUsuario (Usuario u) {
 			repo.save(u);
 		}
 		
 		// Read
 		
-		public List<Usuario> listarProdutos() {
+		public List<Usuario> listarUsuario() {
 			return repo.findAll();
 		}
 		
 		//Update
 		
-		public void atualizarProduto (Usuario u) {
+		public void atualizarUsuario (Usuario u) {
 			repo.save(u);
 		}
 		
 		// Delete
 		
-		public void deletarProduto(int id) {
+		public void deletarUsuario(int id) {
 			repo.deleteById(id);
 		}
 		

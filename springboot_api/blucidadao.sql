@@ -62,3 +62,21 @@ FOREIGN KEY (id_ouvidoria) REFERENCES ouvidoria(id_ouvidoria),
 FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
 );
 
+CREATE TABLE escolas(
+id_escola INTEGER AUTO_INCREMENT,
+codigo_inep VARCHAR(20) UNIQUE,
+nome  VARCHAR(255) NOT NULL,
+rede VARCHAR(50),`blu-cidadao`
+PRIMARY KEY (id_escola)
+);
+
+CREATE TABLE endereco_escolas(
+id_endereco INTEGER AUTO_INCREMENT,
+id_escola INTEGER,
+rua VARCHAR(255),
+bairro VARCHAR(50),
+municipio VARCHAR(100),
+uf VARCHAR(2),
+PRIMARY KEY (id_endereco),
+FOREIGN KEY (id_escola) REFERENCES escolas(id_escola)
+);
