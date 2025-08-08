@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'home_page.dart';
 import 'notifications_page.dart';
 import 'profile_page.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = const [
-    HomeScreen(),
+    HomePage(),
     NotificationsPage(),
     ProfilePage(),
   ];

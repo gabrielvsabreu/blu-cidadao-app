@@ -11,8 +11,8 @@ import 'infraestrutura_page.dart';
 import 'noticias_page.dart';
 import 'ouvidoria_page.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,8 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: 6),
                     ServiceTile(
                       title: 'Emergência',
-                      subtitle: 'Contato com Polícia, Bombeiros ou SAMU via chat',
+                      subtitle:
+                          'Contato com Polícia, Bombeiros ou SAMU via chat',
                       icon: Icons.warning_amber_rounded,
                       color: Colors.red,
                       route: const EmergenciaPage(),
@@ -92,7 +93,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ServiceTile(
                       title: 'Documentos',
-                      subtitle: 'Emitir documentos, agendar serviços e tirar dúvidas',
+                      subtitle:
+                          'Emitir documentos, agendar serviços e tirar dúvidas',
                       icon: Icons.description,
                       color: Colors.blueGrey,
                       route: const DocumentosPage(),
@@ -106,14 +108,16 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ServiceTile(
                       title: 'Educação',
-                      subtitle: 'Lista de escolas municipais e suas informações',
+                      subtitle:
+                          'Lista de escolas municipais e suas informações',
                       icon: Icons.school,
                       color: Colors.green,
                       route: const EducacaoPage(),
                     ),
                     ServiceTile(
                       title: 'Saúde',
-                      subtitle: 'Acesso a serviços e integração com o app Pronto',
+                      subtitle:
+                          'Acesso a serviços e integração com o app Pronto',
                       icon: Icons.local_hospital,
                       color: Colors.pink,
                       route: const SaudePage(),
@@ -127,7 +131,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ServiceTile(
                       title: 'Trabalho e Emprego',
-                      subtitle: 'Vagas disponíveis e outros serviços de emprego',
+                      subtitle:
+                          'Vagas disponíveis e outros serviços de emprego',
                       icon: Icons.work,
                       color: Colors.orange,
                       route: const JobsPage(),
@@ -141,7 +146,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ServiceTile(
                       title: 'Ouvidoria',
-                      subtitle: 'Registrar, pesquisar e acompanhar manifestações',
+                      subtitle:
+                          'Registrar, pesquisar e acompanhar manifestações',
                       icon: Icons.record_voice_over,
                       color: Colors.brown,
                       route: const OuvidoriaPage(),
@@ -201,10 +207,7 @@ class ServiceTile extends StatelessWidget {
         ),
         trailing: const Icon(Icons.chevron_right, color: Colors.grey),
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => route),
-          );
+          Navigator.push(context, MaterialPageRoute(builder: (_) => route));
         },
       ),
     );
