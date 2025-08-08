@@ -22,6 +22,7 @@ public class EnderecoEscolas {
     private Escola escola;
 
     private String rua;
+    private int numero;
     private String bairro;
     private String municipio;
     private String uf;
@@ -31,12 +32,13 @@ public class EnderecoEscolas {
 
     }
 
-    public EnderecoEscolas(Integer id_endereco, Escola escola, String rua, String bairro, String municipio, String uf){
+    public EnderecoEscolas(Integer id_endereco, Escola escola, String rua, String bairro, String municipio, String uf, int numero){
         this.id_endereco = id_endereco;
         this.escola = escola;
         this.rua = rua;
         this.bairro = bairro;
         this.municipio = municipio;
+        this.numero = numero;
     }
 
     //Getters e Setters
@@ -81,5 +83,13 @@ public class EnderecoEscolas {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    public int getNumero() {
+        return numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
 
 }

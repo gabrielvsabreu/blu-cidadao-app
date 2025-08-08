@@ -74,9 +74,18 @@ CREATE TABLE endereco_escolas(
 id_endereco INTEGER AUTO_INCREMENT,
 id_escola INTEGER,
 rua VARCHAR(255),
+numero VARCHAR(100),
 bairro VARCHAR(50),
 municipio VARCHAR(100),
 uf VARCHAR(2),
 PRIMARY KEY (id_endereco),
 FOREIGN KEY (id_escola) REFERENCES escolas(id_escola)
 );
+
+--Inserir escola
+INSERT INTO escolas(codigo_inep, nome, rede)
+VALUES ('','', NULL);
+
+--Inserir endereço das escolas
+INSERT INTO endereco_escolas(id_escola, rua, numero, bairro, municipio, uf)
+VALUES (LAST_INSERT_ID(), '', numero , '', '', '' );
