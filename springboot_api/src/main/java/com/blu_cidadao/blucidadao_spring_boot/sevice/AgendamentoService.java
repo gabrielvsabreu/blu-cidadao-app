@@ -19,7 +19,7 @@ public class AgendamentoService {
 		String protocolo = ProtocoloGenerator.gerarProtocolo(10);         
 		agendamento.setProtocolo(protocolo);      
 
-}
+	}
 
 	private final AgendamentoRepo repo;
 	
