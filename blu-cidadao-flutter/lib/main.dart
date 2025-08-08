@@ -1,7 +1,7 @@
+import 'package:blu_cidadao/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart';
-import 'pages/menu_page.dart';
 
 void main() {
   runApp(
@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const SplashPage(),
       title: 'Blu Cidadão',
       themeMode: themeProvider.themeMode,
       theme: ThemeData(
@@ -29,9 +31,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
-      ),
-      home: const MainScreen(),
-      debugShowCheckedModeBanner: false,
+      ),      
     );
   }
 }
