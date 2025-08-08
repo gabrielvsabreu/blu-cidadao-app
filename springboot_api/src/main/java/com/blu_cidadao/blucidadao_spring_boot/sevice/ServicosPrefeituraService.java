@@ -23,25 +23,25 @@ public class ServicosPrefeituraService {
 	
 	// Create
 
-		public void inserirProduto (ServicosPrefeitura s) {
+		public void inserirServicosPrefeitura (ServicosPrefeitura s) {
 			repo.save(s);
 		}
 		
 		// Read
 		
-		public List<ServicosPrefeitura> listarProdutos() {
+		public List<ServicosPrefeitura> listarServicosPrefeitura() {
 			return repo.findAll();
 		}
 		
 		//Update
 		
-		public void atualizarProduto (ServicosPrefeitura s) {
+		public void atualizarServicosPrefeitura (ServicosPrefeitura s) {
 			repo.save(s);
 		}
 		
 		// Delete
 		
-		public void deletarProduto(int id) {
+		public void deletarServicosPrefeitura(int id) {
 			repo.deleteById(id);
 		}	
 		

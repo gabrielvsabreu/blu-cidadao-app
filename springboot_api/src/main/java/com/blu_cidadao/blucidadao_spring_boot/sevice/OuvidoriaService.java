@@ -23,25 +23,25 @@ public class OuvidoriaService {
 	
 	// Create
 
-		public void inserirProduto (Ouvidoria o) {
+		public void inserirOuvidoria (Ouvidoria o) {
 			repo.save(o);
 		}
 		
 		// Read
 		
-		public List<Ouvidoria> listarProdutos() {
+		public List<Ouvidoria> listarOuvidoria() {
 			return repo.findAll();
 		}
 		
 		//Update
 		
-		public void atualizarProduto (Ouvidoria o) {
+		public void atualizarOuvidoria (Ouvidoria o) {
 			repo.save(o);
 		}
 		
 		// Delete
 		
-		public void deletarProduto(int id) {
+		public void deletarOuvidoria(int id) {
 			repo.deleteById(id);
 		}
 		

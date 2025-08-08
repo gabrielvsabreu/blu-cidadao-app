@@ -31,25 +31,25 @@ public class AgendamentoService {
 	
 	// Create
 
-		public void inserirProduto (Agendamento a) {
+		public void inserirAgendamento (Agendamento a) {
 			repo.save(a);
 		}
 		
 		// Read
 		
-		public List<Agendamento> listarProdutos() {
+		public List<Agendamento> listarAgendamento() {
 			return repo.findAll();
 		}
 		
 		//Update
 		
-		public void atualizarProduto (Agendamento a) {
+		public void atualizarAgendamento (Agendamento a) {
 			repo.save(a);
 		}
 		
 		// Delete
 		
-		public void deletarProduto(int id) {
+		public void deletarAgendamento(int id) {
 			repo.deleteById(id);
 		}
 		
