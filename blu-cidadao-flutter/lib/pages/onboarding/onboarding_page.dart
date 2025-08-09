@@ -13,58 +13,87 @@ class OnboardingPage extends StatelessWidget {
       backgroundColor: AppColors.iceWhiteColor,
       body: Column(
         children: [
-          SizedBox(
-            height: size.height * 2 / 3,
-            width: double.infinity,
-            child: Center(
-              child: Image.asset(
-                'assets/images/mulher-celular.png',
-                fit: BoxFit.cover,
+          // Stack para imagem + sobreposição da caixa branca
+          Stack(
+            children: [
+              SizedBox(
+                height: size.height * 0.55,
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/images/mulher-celular.png',
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
+              Positioned(
+                bottom: -20, // sobrepõe a caixa branca na imagem
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    color: AppColors.iceWhiteColor,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(24),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 12,
+                        offset: Offset(0, -4),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
+
+          // Conteúdo principal
           Expanded(
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              color: AppColors.iceWhiteColor,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              decoration: const BoxDecoration(color: AppColors.iceWhiteColor),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 24),
-                  Text(
-                    'Bem vindo ao',
+                  Image.asset(
+                    'assets/images/logo4.png',
+                    width: 250,
+                    fit: BoxFit.contain,
+                  ),
+                  const SizedBox(height: 40),
+                  RichText(
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 22,
-                      color: AppColors.blueColor1,
+                    text: const TextSpan(
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Colors.black45,
+                      ),
+                      children: [
+                        TextSpan(text: 'Ao entrar, você concorda com nosso\n'),
+                        TextSpan(
+                          text: 'termo de responsabilidade',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        TextSpan(text: ' e '),
+                        TextSpan(
+                          text: 'política de privacidade',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        TextSpan(text: '.'),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Blumenau na palma da sua mão',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: AppColors.blueColor1,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    'Ao entrar, você concorda com nosso\ntermo de responsabilidade e política de privacidade.',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                      color: Colors.black45,
-                    ),
-                  ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: 40),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -74,6 +103,8 @@ class OnboardingPage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        elevation: 4,
+                        shadowColor: Colors.black26,
                       ),
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -82,7 +113,7 @@ class OnboardingPage extends StatelessWidget {
                         );
                       },
                       child: RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           style: TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 16,
