@@ -11,7 +11,7 @@ class AppColors {
     Color(0xFF006df0),
   ]; // BlueGradient
 
-  static const Color whiteColor = Color(0xFFFFFFFF); // White
+  static const Color iceWhiteColor = Color(0xFFF5F9FF); // Ice White
   static const Color errorColor = Color(0xFFB00020); // Red
   static const Color textColor = Color(0xFF000000); // Black
   static const Color accentColor = Color(0xFFFFC107); // Amber
