@@ -35,6 +35,7 @@ dependencies:
   http: ^1.5.0
   material_color_utilities: ^0.11.1
   meta: ^1.16.0
+  url_launcher: ^6.2.6
   url_launcher_android: ^6.3.17
   vector_math: ^2.1.4
   vm_service: ^15.0.0
