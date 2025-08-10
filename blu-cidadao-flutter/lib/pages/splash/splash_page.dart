@@ -1,4 +1,5 @@
-import 'package:blu_cidadao/pages/home_page.dart';
+import 'package:blu_cidadao/common/constants/app_colors.dart';
+import 'package:blu_cidadao/pages/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => const OnboardingPage()),
       );
     });
   }
@@ -29,12 +30,16 @@ class _SplashPageState extends State<SplashPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF1c7df2), Color(0xFF1971e5), Color(0xFF006df0)],
+            colors: AppColors.blueGradient,
             stops: [0.0, 0.5, 1.0],
           ),
         ),
         child: Center(
-          child: Image.asset('assets/logo1.png', width: 160, height: 160),
+          child: Image.asset(
+            'assets/images/logo1.png',
+            width: 160,
+            height: 160,
+          ),
         ),
       ),
     );

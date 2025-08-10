@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/educacao_model.dart';
+import 'educacao_model.dart';
 
 class EducacaoService {
   Future<List<EducacaoModel>> buscarEscolas() async {
