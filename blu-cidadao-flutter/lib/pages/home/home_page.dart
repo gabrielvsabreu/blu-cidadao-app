@@ -5,7 +5,7 @@ import '../emergencia/emergencia_page.dart';
 import '../transporte/veiculos_page.dart';
 import '../documentos/documentos_page.dart';
 import '../agendamento/agendamento_page.dart';
-import '../educacao/educacao_page.dart';
+import '../escolas/escolas_page.dart';
 import '../saude/saude_page.dart';
 import '../agua_esgoto/infraestrutura_page.dart';
 import '../noticias/noticias_page.dart';
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                           'Lista de escolas municipais e suas informações',
                       icon: Icons.school,
                       color: Colors.green,
-                      route: const EducacaoPage(),
+                      route: EscolasPage(),
                     ),
                     ServiceTile(
                       title: 'Saúde',
