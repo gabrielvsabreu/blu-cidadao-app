@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import '../home/home_page.dart';
 import 'notifications_page.dart';
 import 'profile_page.dart';
 import 'package:provider/provider.dart';
-import '../theme_provider.dart';
+import '../../theme_provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

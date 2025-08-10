@@ -1,5 +1,5 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
-import 'package:blu_cidadao/pages/home_page.dart';
+import 'package:blu_cidadao/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {

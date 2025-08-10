@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/educacao_model.dart';
-import '../models/educacao_service.dart';
+import 'educacao_model.dart';
+import 'educacao_service.dart';
 
 class EducacaoPage extends StatefulWidget {
   const EducacaoPage({super.key});

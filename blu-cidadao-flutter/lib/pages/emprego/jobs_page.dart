@@ -1,7 +1,7 @@
-import 'package:blu_cidadao/models/JobDetailPage.dart';
+import 'package:blu_cidadao/pages/emprego/JobDetailPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/job_service.dart';
+import 'job_service.dart';
 
 class JobsPage extends StatefulWidget {
   const JobsPage({super.key});

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'jobs_page.dart';
-import 'emergencia_page.dart';
-import 'veiculos_page.dart';
-import 'documentos_page.dart';
-import 'agendamento_page.dart';
-import 'educacao_page.dart';
-import 'saude_page.dart';
-import 'infraestrutura_page.dart';
-import 'noticias_page.dart';
-import 'ouvidoria_page.dart';
+import '../emprego/jobs_page.dart';
+import '../emergencia/emergencia_page.dart';
+import '../transporte/veiculos_page.dart';
+import '../documentos/documentos_page.dart';
+import '../agendamento/agendamento_page.dart';
+import '../educacao/educacao_page.dart';
+import '../saude/saude_page.dart';
+import '../agua_esgoto/infraestrutura_page.dart';
+import '../noticias/noticias_page.dart';
+import '../ouvidoria/ouvidoria_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
