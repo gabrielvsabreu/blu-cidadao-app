@@ -1,4 +1,6 @@
-import '../models/infra_model.dart';
+
+
+import 'package:blu_cidadao/pages/infraestrutura/infra_model.dart';
 
 class InfraServiceData {
   static List<InfraService> getServicos() {

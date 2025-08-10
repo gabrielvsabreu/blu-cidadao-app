@@ -1,6 +1,6 @@
+import 'package:blu_cidadao/pages/infraestrutura/infra_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/infra_service.dart';
 
 class InfraestruturaPage extends StatelessWidget {
   const InfraestruturaPage({super.key});
