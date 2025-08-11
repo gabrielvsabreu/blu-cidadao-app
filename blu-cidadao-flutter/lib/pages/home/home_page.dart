@@ -7,7 +7,7 @@ import '../documentos/documentos_page.dart';
 import '../agendamento/agendamento_page.dart';
 import '../escolas/escolas_page.dart';
 import '../saude/saude_page.dart';
-import '../infraestrutura/infraestrutura_page.dart';
+import '../infraestrutura/infra_page.dart';
 import '../noticias/noticias_page.dart';
 import '../ouvidoria/ouvidoria_page.dart';
 
