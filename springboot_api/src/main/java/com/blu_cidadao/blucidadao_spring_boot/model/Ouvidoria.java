@@ -22,10 +22,10 @@ public class Ouvidoria {
     public Ouvidoria() {
     }
 
-    public Ouvidoria(Integer id_ouvidoria, String nome_ouvidoria) {
-        this.id_ouvidoria = id_ouvidoria;
+    public Ouvidoria(String nome_ouvidoria) {
         this.nome_ouvidoria = nome_ouvidoria;
     }
+
 
     public Integer getId_ouvidoria() {
         return id_ouvidoria;

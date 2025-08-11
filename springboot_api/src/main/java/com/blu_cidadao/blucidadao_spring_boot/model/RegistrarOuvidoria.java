@@ -3,6 +3,7 @@ package com.blu_cidadao.blucidadao_spring_boot.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,8 +27,13 @@ public class RegistrarOuvidoria {
     @JoinColumn(name = "id_endereco", nullable = false)
     private Endereco endereco;
 
+    @Column(name = "dia", nullable = false)
     private LocalDate dia;
+
+    @Column(name = "comentario", length = 500)
     private String comentario;
+
+    @Column(name = "status", length = 20)
     private String status = "Aberta";
 
     // Default constructor
