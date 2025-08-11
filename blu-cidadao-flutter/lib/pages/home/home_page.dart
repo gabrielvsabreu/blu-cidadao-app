@@ -1,8 +1,9 @@
+import 'package:blu_cidadao/pages/veiculo/veiculos_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../emprego/jobs_page.dart';
 import '../emergencia/emergencia_page.dart';
-import '../transporte/veiculos_page.dart';
+import '../veiculo/veiculos_home_page.dart';
 import '../documentos/documentos_page.dart';
 import '../agendamento/agendamento_page.dart';
 import '../escolas/escolas_page.dart';
@@ -89,7 +90,7 @@ class HomePage extends StatelessWidget {
                       subtitle: 'Habilitação, veículos e infrações',
                       icon: Icons.directions_car,
                       color: Colors.deepPurple,
-                      route: const VeiculosPage(),
+                      route: const VeiculosHomePage(),
                     ),
                     ServiceTile(
                       title: 'Documentos',
