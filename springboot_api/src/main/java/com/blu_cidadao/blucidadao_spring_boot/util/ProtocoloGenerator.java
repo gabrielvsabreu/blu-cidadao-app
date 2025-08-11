@@ -1,3 +1,4 @@
+//Editor: Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.util;
 
 import java.security.SecureRandom;

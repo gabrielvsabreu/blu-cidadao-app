@@ -1,5 +1,4 @@
 package com.blu_cidadao.blucidadao_spring_boot.service;
-
 import java.util.List;
 import java.util.Optional;
 
