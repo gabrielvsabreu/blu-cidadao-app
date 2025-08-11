@@ -12,39 +12,34 @@ import com.blu_cidadao.blucidadao_spring_boot.repo.EnderecoRepo;
 @Service
 public class EnderecoService {
 
-	private final EnderecoRepo repo;
-	
-	@Autowired
-	
-	public EnderecoService(EnderecoRepo repo) {
-		this.repo = repo;
-	}
-	
-	// Create
+    private final EnderecoRepo repo;
 
-		public void inserirEndereco (Endereco e) {
-			repo.save(e);
-		}
-		
-		// Read
-		
-		public List<Endereco> listarEndereco() {
-			return repo.findAll();
-		}
-		
-		//Update
-		
-		public void atualizarEndereco (Endereco e) {
-			repo.save(e);
-		}
-		
-		// Delete
-		
-		public void deletarEndereco(int id) {
-			repo.deleteById(id);
-		}
-	
-		public Optional<Endereco> obterEnderecoPorId(int id) {
-			return repo.findById(id);
-		}
+    @Autowired
+    public EnderecoService(EnderecoRepo repo) {
+        this.repo = repo;
+    }
+
+    // Create
+    public Endereco inserirEndereco(Endereco e) {
+        return repo.save(e);
+    }
+
+    // Read
+    public List<Endereco> listarEndereco() {
+        return repo.findAll();
+    }
+
+    // Update
+    public Endereco atualizarEndereco(Endereco e) {
+        return repo.save(e);
+    }
+
+    // Delete
+    public void deletarEndereco(int id) {
+        repo.deleteById(id);
+    }
+
+    public Optional<Endereco> obterEnderecoPorId(int id) {
+        return repo.findById(id);
+    }
 }
