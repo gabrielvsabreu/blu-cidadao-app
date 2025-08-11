@@ -58,7 +58,7 @@ class OnboardingPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/logo4.png',
+                    'assets/images/logo2.png',
                     width: 250,
                     fit: BoxFit.contain,
                   ),
