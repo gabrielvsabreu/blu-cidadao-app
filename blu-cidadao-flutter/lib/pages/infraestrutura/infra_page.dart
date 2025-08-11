@@ -2,6 +2,9 @@ import 'package:blu_cidadao/pages/infraestrutura/infra_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const Color blueColor1 = Color(0xFF006df0);
+const Color iceWhiteColor = Color(0xFFF5F9FF);
+
 class InfraestruturaPage extends StatelessWidget {
   const InfraestruturaPage({super.key});
 
@@ -29,10 +32,13 @@ class InfraestruturaPage extends StatelessWidget {
             final servico = servicos[index];
             return ElevatedButton.icon(
               onPressed: () => _abrirUrl(servico.url),
-              icon: const Icon(Icons.open_in_browser),
-              label: Text(servico.nome),
+              label: Text(
+                servico.nome,
+                style: const TextStyle(color: iceWhiteColor),
+              ),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
+                backgroundColor: blueColor1,
               ),
             );
           },
