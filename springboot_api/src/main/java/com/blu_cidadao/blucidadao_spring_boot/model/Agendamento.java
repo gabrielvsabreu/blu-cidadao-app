@@ -1,6 +1,9 @@
-//Editor: Gabrielli Danker
+// Edited by: Gabrielli Danker
 
 package com.blu_cidadao.blucidadao_spring_boot.model;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +20,7 @@ public class Agendamento {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_agendamento")
     private Integer id_agendamento;
 
     @ManyToOne
@@ -28,12 +32,12 @@ public class Agendamento {
     private ServicosPrefeitura servico;
 
     @Column(name= "dia", nullable = false)
-    private String dia;
+    private LocalDate dia;
 
     @Column(name= "hora", nullable = false)
-    private String hora;
+    private LocalTime hora;
 
-    @Column(name = "protocolo", length = 10, nullable = false)
+    @Column(name = "protocolo", length = 10, unique = true)
     private String protocolo;
 
     // Default constructor
@@ -41,8 +45,7 @@ public class Agendamento {
     }
 
     // Parameterized constructor
-    public Agendamento(Integer id_agendamento, Usuario usuario, ServicosPrefeitura servico, String dia, String hora, String protocolo) {
-        this.id_agendamento = id_agendamento;
+    public Agendamento(Usuario usuario, ServicosPrefeitura servico, LocalDate dia, LocalTime hora, String protocolo) {
         this.usuario = usuario;
         this.servico = servico;
         this.dia = dia;
@@ -72,17 +75,17 @@ public class Agendamento {
         this.servico = servico;
     }
 
-    public String getDia() {
+    public LocalDate getDia() {
         return dia;
     }
-    public void setDia(String dia) {
+    public void setDia(LocalDate dia) {
         this.dia = dia;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
-    public void setHora(String hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -92,5 +95,6 @@ public class Agendamento {
     public void setProtocolo(String protocolo) {
         this.protocolo = protocolo;     
     }
+
 
 }

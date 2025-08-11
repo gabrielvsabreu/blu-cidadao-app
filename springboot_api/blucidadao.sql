@@ -24,6 +24,7 @@ PRIMARY KEY (id_endereco),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
+
 CREATE TABLE servicos_prefeitura(
 id_servicos INTEGER AUTO_INCREMENT,
 nome_servicos VARCHAR(100) NOT NULL,
@@ -56,36 +57,30 @@ id_ouvidoria INTEGER,
 id_endereco INTEGER,
 dia DATE NOT NULL,
 comentarios VARCHAR(255) NOT NULL,
-status VARCHAR(20) DEFAULT 'Aberta',
 PRIMARY KEY (id_registrar),
 FOREIGN KEY (id_ouvidoria) REFERENCES ouvidoria(id_ouvidoria),
 FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
 );
 
-CREATE TABLE escolas(
-id_escola INTEGER AUTO_INCREMENT,
-codigo_inep VARCHAR(20) UNIQUE,
-nome  VARCHAR(255) NOT NULL,
-rede VARCHAR(50),`blu-cidadao`
-PRIMARY KEY (id_escola)
-);
+INSERT INTO ouvidoria (nome_ouvidoria) VALUES
+('Reclamação'),
+('Reclamação sobre Atendimento'),
+('Reclamação sobre Infraestrutura'),
+('Denúncia'),
+('Denúncia de Irregularidades'),
+('Denúncia Ambiental'),
+('Sugestão'),
+('Solicitação de Melhorias'),
+('Proposta de Projeto'),
+('Solicitação de Serviços'),
+('Pedido de Transparência'),
+('Elogio'),
+('Agradecimento'),
+('Pedido de Informação'),
+('Ouvidoria Geral');
 
-CREATE TABLE endereco_escolas(
-id_endereco INTEGER AUTO_INCREMENT,
-id_escola INTEGER,
-rua VARCHAR(255),
-numero VARCHAR(100),
-bairro VARCHAR(50),
-municipio VARCHAR(100),
-uf VARCHAR(2),
-PRIMARY KEY (id_endereco),
-FOREIGN KEY (id_escola) REFERENCES escolas(id_escola)
-);
 
---Inserir escola
-INSERT INTO escolas(codigo_inep, nome, rede)
-VALUES ('','', NULL);
 
---Inserir endereço das escolas
-INSERT INTO endereco_escolas(id_escola, rua, numero, bairro, municipio, uf)
-VALUES (LAST_INSERT_ID(), '', numero , '', '', '' );
+
+
+
