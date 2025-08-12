@@ -74,7 +74,6 @@ public class OuvidoriaController {
         registro.setEndereco(endereco);
         registro.setComentario(dto.getComentarios());
         registro.setDia(LocalDate.now());
-        registro.setStatus("Aberta");
 
         return registrarOuvidoriaService.salvarRegistro(registro);
     }

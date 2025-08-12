@@ -1,3 +1,4 @@
+// Edited by: Lucas
 package com.blu_cidadao.blucidadao_spring_boot.exception;
 
 import org.springframework.http.HttpStatus;
