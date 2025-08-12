@@ -10,7 +10,8 @@ import com.blu_cidadao.blucidadao_spring_boot.model.Usuario;
 
 
 public interface UsuarioRepo extends JpaRepository<Usuario, Integer> {
-
-    Optional<Usuario> findAllByEmail(String emailUsuario);
-	
+    
+    Optional<Usuario> findByCpf(String cpf);
+    Optional<Usuario> findAllByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 }
