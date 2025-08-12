@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.blu_cidadao.blucidadao_spring_boot.dto.TrocaSenhaDTO;
 import com.blu_cidadao.blucidadao_spring_boot.model.Usuario;
 import com.blu_cidadao.blucidadao_spring_boot.service.UsuarioService;
-
 
 
 @RestController
@@ -27,11 +27,16 @@ public class UsuarioController {
 	
 private final UsuarioService servico;
 	
-	
 	@Autowired
 	public UsuarioController(UsuarioService servico) {
 		this.servico = servico;
 	}
+	
+	@PutMapping("/{id}/trocar-senha")
+    public String trocarSenha(@PathVariable Integer id, @RequestBody TrocaSenhaDTO dto) {
+        servico.trocarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha());
+        return "Senha alterada com sucesso!";
+    }
 	
 	@PostMapping
 	public void inserirUsuario(@RequestBody Usuario u) {

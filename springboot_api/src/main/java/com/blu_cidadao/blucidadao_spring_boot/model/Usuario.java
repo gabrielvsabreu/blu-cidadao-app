@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 
 @Table(name = "usuario")
@@ -29,6 +31,7 @@ public class Usuario {
     private String email;
 
     @Column(name = "senha", length = 100, nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
 
     @Column(name = "cpf", length = 11, nullable = false, unique = true)
