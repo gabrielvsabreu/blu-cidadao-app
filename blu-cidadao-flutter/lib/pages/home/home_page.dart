@@ -280,7 +280,7 @@ class HomePage extends StatelessWidget {
                     ),
                     serviceBox(
                       context,
-                      'Veículos',
+                      'DETRAN-SC',
                       Icons.directions_car,
                       Colors.deepPurple,
                       const VeiculosHomePage(),

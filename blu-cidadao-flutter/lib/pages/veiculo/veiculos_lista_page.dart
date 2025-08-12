@@ -6,7 +6,11 @@ class VeiculosListaPage extends StatelessWidget {
   final String titulo;
   final List<VeiculoService> servicos;
 
-  const VeiculosListaPage({super.key, required this.titulo, required this.servicos});
+  const VeiculosListaPage({
+    super.key,
+    required this.titulo,
+    required this.servicos,
+  });
 
   Future<void> _abrirUrl(String url) async {
     final uri = Uri.parse(url);
@@ -22,14 +26,39 @@ class VeiculosListaPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView.separated(
           itemCount: servicos.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 12),
+          separatorBuilder: (context, index) => const SizedBox(height: 16),
           itemBuilder: (context, index) {
             final servico = servicos[index];
-            return ElevatedButton.icon(
-              icon: const Icon(Icons.open_in_new),
-              label: Text(servico.nome),
-              style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
-              onPressed: () => _abrirUrl(servico.url),
+            return Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 4,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: () => _abrirUrl(servico.url),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 16,
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Text(
+                          servico.nome,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Inter',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             );
           },
         ),

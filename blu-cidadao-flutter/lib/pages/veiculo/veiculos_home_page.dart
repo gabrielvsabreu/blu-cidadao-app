@@ -1,5 +1,4 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
-import 'package:blu_cidadao/pages/agendamento/agendamento_page.dart';
 import 'package:flutter/material.dart';
 import 'veiculos_lista_page.dart';
 import 'veiculos_service.dart';
@@ -10,7 +9,7 @@ class VeiculosHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: iceWhiteColor,
+      backgroundColor: AppColors.iceWhiteColor,
       body: Column(
         children: [
           Container(
