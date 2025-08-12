@@ -1,3 +1,5 @@
+// Edited by: Lucas
+
 package com.blu_cidadao.blucidadao_spring_boot.service;
 
 import org.springframework.stereotype.Service;
@@ -32,7 +34,7 @@ public class CepService {
 
         Endereco e = new Endereco();
         e.setCep(resp.getCep());
-        e.setLogradouro(resp.getLogradouro() != null ? resp.getLogradouro() : "");
+        e.setRua(resp.getLogradouro() != null ? resp.getLogradouro() : "");
         e.setBairro(resp.getBairro() != null ? resp.getBairro() : "");
         e.setCidade(resp.getLocalidade() != null ? resp.getLocalidade() : "");
         e.setEstado(resp.getUf() != null ? resp.getUf() : "");

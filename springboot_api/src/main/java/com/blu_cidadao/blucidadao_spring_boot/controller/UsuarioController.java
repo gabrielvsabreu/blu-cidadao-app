@@ -19,19 +19,18 @@ import com.blu_cidadao.blucidadao_spring_boot.model.Usuario;
 import com.blu_cidadao.blucidadao_spring_boot.service.UsuarioService;
 
 
-
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 	
 private final UsuarioService servico;
-	
 	
 	@Autowired
 	public UsuarioController(UsuarioService servico) {
 		this.servico = servico;
 	}
+
 	
 	@PostMapping
 	public void inserirUsuario(@RequestBody Usuario u) {

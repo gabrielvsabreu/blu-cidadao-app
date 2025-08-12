@@ -33,21 +33,17 @@ public class RegistrarOuvidoria {
     @Column(name = "comentario", length = 500)
     private String comentario;
 
-    @Column(name = "status", length = 20)
-    private String status = "Aberta";
-
     // Default constructor
     public RegistrarOuvidoria() {
     }
     
     // Parameterized constructor
-    public RegistrarOuvidoria(Integer id_registrar, Ouvidoria ouvidoria, Endereco endereco, LocalDate dia, String comentario, String status) {
+    public RegistrarOuvidoria(Integer id_registrar, Ouvidoria ouvidoria, Endereco endereco, LocalDate dia, String comentario) {
         this.id_registrar = id_registrar;
         this.ouvidoria = ouvidoria;
         this.endereco = endereco;
         this.dia = dia;
         this.comentario = comentario;
-        this.status = status;
     }
 
     // Getters and Setters
@@ -85,13 +81,5 @@ public class RegistrarOuvidoria {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 
 }

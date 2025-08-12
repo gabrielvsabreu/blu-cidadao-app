@@ -67,7 +67,7 @@ public class AgendamentoController {
 
         return ResponseEntity.ok(Map.of(
             "protocolo", protocolo,
-            "servico", servico.getNome_servico(),
+            "servico", servico.getNome_servicos(),
             "data", dia.toString(),
             "hora", horas.toString()
         ));

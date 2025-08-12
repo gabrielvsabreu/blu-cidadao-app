@@ -1,12 +1,7 @@
 // Edited by: Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ouvidoria")
@@ -16,16 +11,19 @@ public class Ouvidoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_ouvidoria;
 
+    @ManyToOne(fetch = FetchType.LAZY)  // Muitos ouvidorias para um tipo_ouvidoria
+    @JoinColumn(name = "id_tipo_ouvidoria", nullable = false)
+    private TipoOuvidoria tipoOuvidoria;
+
     @Column(name = "nome_ouvidoria", length = 100, nullable = false)
     private String nome_ouvidoria;
 
-    public Ouvidoria() {
-    }
+    public Ouvidoria() {}
 
-    public Ouvidoria(String nome_ouvidoria) {
+    public Ouvidoria(TipoOuvidoria tipoOuvidoria, String nome_ouvidoria) {
+        this.tipoOuvidoria = tipoOuvidoria;
         this.nome_ouvidoria = nome_ouvidoria;
     }
-
 
     public Integer getId_ouvidoria() {
         return id_ouvidoria;
@@ -34,11 +32,18 @@ public class Ouvidoria {
         this.id_ouvidoria = id_ouvidoria;
     }
 
+    public TipoOuvidoria getTipoOuvidoria() {
+        return tipoOuvidoria;
+    }
+    public void setTipoOuvidoria(TipoOuvidoria tipoOuvidoria) {
+        this.tipoOuvidoria = tipoOuvidoria;
+    }
+
     public String getNome_ouvidoria() {
         return nome_ouvidoria;
     }
     public void setNome_ouvidoria(String nome_ouvidoria) {
         this.nome_ouvidoria = nome_ouvidoria;
     }
-
 }
+

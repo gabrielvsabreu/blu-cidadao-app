@@ -1,3 +1,5 @@
+// Edited by: Lucas
+
 package com.blu_cidadao.blucidadao_spring_boot.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
