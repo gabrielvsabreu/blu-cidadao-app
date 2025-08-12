@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.blu_cidadao.blucidadao_spring_boot.exception.InvalidCpfException;
-
 import java.util.Map;
 
 @ControllerAdvice
