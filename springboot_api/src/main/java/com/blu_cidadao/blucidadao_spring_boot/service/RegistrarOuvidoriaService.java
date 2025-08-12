@@ -1,3 +1,4 @@
+// Edited by: Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.service;
 
 import java.util.List;
@@ -47,5 +48,10 @@ public class RegistrarOuvidoriaService {
 		public Optional<RegistrarOuvidoria> obterRegistrarOuvidoriaPorId(int id) {
 			return repo.findById(id);
 		}
+
+        public RegistrarOuvidoria salvarRegistro(RegistrarOuvidoria registro) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'salvarRegistro'");
+        }
 	
 }

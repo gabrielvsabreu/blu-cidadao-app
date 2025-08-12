@@ -2,13 +2,13 @@ import 'dart:ui';
 
 class AppColors {
   AppColors._();
-  static const Color blueColor1 = Color(0xFF006df0);
-  static const Color blueColor2 = Color(0xFF1971e5);
-  static const Color blueColor3 = Color(0xFF1c7df2);
+  static const Color blueColor1 = Color(0xFF232b5b);
+  static const Color blueColor2 = Color(0xFF1f2651);
+  static const Color blueColor3 = Color(0xFF1b2147);
   static const List<Color> blueGradient = [
-    Color(0xFF1c7df2),
-    Color(0xFF1971e5),
-    Color(0xFF006df0),
+    Color(0xFF232b5b),
+    Color(0xFF1f2651),
+    Color(0xFF1b2147),
   ]; // BlueGradient
 
   static const Color iceWhiteColor = Color(0xFFF5F9FF); // Ice White

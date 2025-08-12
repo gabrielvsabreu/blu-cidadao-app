@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const Color blueColor1 = Color(0xFF006df0);
+const Color iceWhiteColor = Color(0xFFF5F9FF);
+
 class OuvidoriaPage extends StatefulWidget {
   const OuvidoriaPage({super.key});
 
@@ -22,10 +25,12 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
 
   void _enviarSolicitacao() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Solicitação registrada com sucesso!'),
-        backgroundColor: Colors.green,
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Solicitação registrada com sucesso!'),
+          backgroundColor: Colors.green,
+        ),
+      );
       _formKey.currentState!.reset();
       setState(() => _tipoSelecionado = null);
       _descricaoController.clear();
@@ -41,9 +46,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ouvidoria Cidadã'),
-      ),
+      appBar: AppBar(title: const Text('Ouvidoria Cidadã')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -55,6 +58,14 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               DropdownButtonFormField<String>(
+                decoration: const InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: blueColor1),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: blueColor1),
+                  ),
+                ),
                 value: _tipoSelecionado,
                 items: tipos.map((tipo) {
                   return DropdownMenuItem<String>(
@@ -74,9 +85,16 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
               TextFormField(
                 controller: _descricaoController,
                 maxLines: 6,
+                cursorColor: blueColor1,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
                   hintText: 'Descreva aqui sua solicitação de forma clara...',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: blueColor1),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: blueColor1),
+                  ),
+                  border: OutlineInputBorder(),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -90,13 +108,13 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                 onPressed: _enviarSolicitacao,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: blueColor1,
                 ),
                 child: const Text(
                   'Enviar Solicitação',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: iceWhiteColor),
                 ),
-              )
+              ),
             ],
           ),
         ),

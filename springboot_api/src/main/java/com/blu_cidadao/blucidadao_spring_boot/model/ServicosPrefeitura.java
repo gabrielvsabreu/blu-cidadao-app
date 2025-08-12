@@ -1,4 +1,4 @@
-//Editor: Gabrielli Danker
+// Edited by: Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.model;
 
 import jakarta.persistence.Column;
@@ -14,17 +14,18 @@ import jakarta.persistence.Table;
 public class ServicosPrefeitura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_servico")
     private Integer id_servico;
 
     @Column(name = "nome_servico", length = 100, nullable = false)
-    private String nomeServico;
+    private String nome_servico;
 
     public ServicosPrefeitura() {
     }
 
-    public ServicosPrefeitura(Integer id_servico, String nomeServico) {
+    public ServicosPrefeitura(Integer id_servico, String nome_servico) {
         this.id_servico = id_servico;
-        this.nomeServico = nomeServico;
+        this.nome_servico = nome_servico;
     }
 
     public Integer getId_servico() {
@@ -34,11 +35,11 @@ public class ServicosPrefeitura {
         this.id_servico = id_servico;
     }
 
-    public String getNomeServico() {
-        return nomeServico;
+    public String getNome_servico() {
+        return nome_servico;
     }
-    public void setNomeServico(String nomeServico) {
-        this.nomeServico = nomeServico;
+    public void setNome_servico(String nome_servico) {
+        this.nome_servico = nome_servico;
     }
 
 }

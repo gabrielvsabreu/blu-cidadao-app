@@ -1,3 +1,4 @@
+// Edited by: Lucas e Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.service;
 
 import java.util.List;
@@ -8,31 +9,24 @@ import org.springframework.stereotype.Service;
 
 import com.blu_cidadao.blucidadao_spring_boot.model.Agendamento;
 import com.blu_cidadao.blucidadao_spring_boot.repo.AgendamentoRepo;
-
 import com.blu_cidadao.blucidadao_spring_boot.util.ProtocoloGenerator;
-
 
 @Service
 public class AgendamentoService {
 
-	public void criarAgendamento(Agendamento agendamento) {
-		String protocolo = ProtocoloGenerator.gerarProtocolo(10);         
-		agendamento.setProtocolo(protocolo);      
-
-	}
-
 	private final AgendamentoRepo repo;
 	
 	@Autowired
-	
 	public AgendamentoService(AgendamentoRepo repo) {
 		this.repo = repo;
 	}
 	
 	// Create
 
-		public void inserirAgendamento (Agendamento a) {
-			repo.save(a);
+	public void inserirAgendamento (Agendamento a) {
+		String protocolo = ProtocoloGenerator.gerarProtocolo(10);
+		a.setProtocolo(protocolo);
+		repo.save(a);
 		}
 		
 		// Read

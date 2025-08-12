@@ -1,4 +1,4 @@
-//Editor: Gabrielli Danker
+// Edited by: Gabrielli Danker
 package com.blu_cidadao.blucidadao_spring_boot.model;
 
 import java.time.LocalDate;
