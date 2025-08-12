@@ -1,9 +1,7 @@
+import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/saude/saude_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-const Color blueColor1 = Color(0xFF006df0);
-const Color iceWhiteColor = Color(0xFFF5F9FF);
 
 class SaudePage extends StatelessWidget {
   const SaudePage({super.key});
@@ -22,27 +20,99 @@ class SaudePage extends StatelessWidget {
     final servicos = SaudeServiceData.getServicos();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Saúde')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.separated(
-          itemCount: servicos.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemBuilder: (context, index) {
-            final servico = servicos[index];
-            return ElevatedButton.icon(
-              onPressed: () => _abrirUrl(servico.url),
-              label: Text(
-                servico.nome,
-                style: const TextStyle(color: iceWhiteColor),
+      backgroundColor: AppColors.iceWhiteColor,
+      body: Column(
+        children: [
+          Container(
+            height: 120,
+            color: AppColors.blueColor1,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: AppColors.iceWhiteColor),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    'SAÚDE',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      color: AppColors.iceWhiteColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
               ),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size.fromHeight(50),
-                backgroundColor: blueColor1,
-              ),
-            );
-          },
-        ),
+            ),
+          ),
+          Expanded(
+            child: ListView.separated(
+              padding: const EdgeInsets.all(20),
+              itemCount: servicos.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 16),
+              itemBuilder: (context, index) {
+                final servico = servicos[index];
+                return InkWell(
+                  onTap: () => _abrirUrl(servico.url),
+                  child: Container(
+                    height: 120,
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    decoration: BoxDecoration(
+                      color: AppColors.lightGrey,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                servico.nome,
+                                style: const TextStyle(
+                                  fontFamily: 'Inter',
+                                  color: AppColors.blueColor1,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              Text(
+                                servico.subtitulo,
+                                style: const TextStyle(
+                                  fontFamily: 'Inter',
+                                  color: AppColors.blueColor1,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: const Icon(
+                              Icons.medical_services,
+                              color: AppColors.blueColor1,
+                              size: 48,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
