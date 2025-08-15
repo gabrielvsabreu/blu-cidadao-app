@@ -4,52 +4,32 @@ class VeiculosServiceData {
   // Serviços de Habilitação
   static List<VeiculoService> getHabilitacao() {
     return [
-      VeiculoService(nome: 'Alterar endereço do condutor', url: 'URL_AQUI'),
-      VeiculoService(nome: 'CNH Digital', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Consulta Clínica do Exame Médico', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Consultar resultado de exame de legislação', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Pontuação do condutor', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Situação da emissão/entrega CNH', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar 2ª via da CNH', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar CNH definitiva', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar mudança de categoria CNH', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar renovação da CNH', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar segunda via de taxas de habilitação', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar adição de categoria CNH', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Acesse mais serviços da habilitação', url: 'URL_AQUI'),
+      VeiculoService(nome: 'Resultado de Provas', url: 'https://www.detran.sc.gov.br/resultado-de-provas/'),
+      VeiculoService(nome: 'Permissão para Dirigir (Primeira CNH)', url: 'https://www.detran.sc.gov.br/permissao-para-dirigir/'),
+      VeiculoService(nome: 'CNH Definitiva', url: 'https://www.detran.sc.gov.br/cnh-definitiva/'),
+      VeiculoService(nome: 'Renovação da CNH', url: 'https://www.detran.sc.gov.br/renovacao-cnh/'),
+      VeiculoService(nome: 'Segunda via da CNH', url: 'https://www.detran.sc.gov.br/segunda-via-cnh/'),
+      VeiculoService(nome: 'CNH Digital', url: 'https://www.detran.sc.gov.br/cnh-digital-cnh/'),
+      VeiculoService(nome: 'Mudança de Categoria', url: 'https://www.detran.sc.gov.br/mudanca-de-categoria-cnh/'),
+      VeiculoService(nome: 'Adição de Categoria', url: 'https://www.detran.sc.gov.br/adicao-de-categoria-cnh/'),
+      VeiculoService(nome: 'Suspensão de CNH', url: 'https://www.detran.sc.gov.br/suspensao-cnh/'),
+      VeiculoService(nome: 'Curso de Reciclagem', url: 'https://www.detran.sc.gov.br/curso-de-reciclagem-cnh/'),
     ];
   }
 
   // Serviços de Veículos
   static List<VeiculoService> getVeiculos() {
     return [
-      VeiculoService(nome: 'Consulta IPVA e Taxa de Licenciamento (CPF)', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Consulta IPVA e Taxa de Licenciamento (Renavam)', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Fale com a AF - IPVA e TRLAV', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Agenda serviços de veículos', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Alvará de liberação de veículos removidos (irregularidade)', url: 'URL_AQUI'),
-      VeiculoService(nome: 'CRLV Digital - PDF', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Motivo se não licenciamento', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Print dos dados do veículo', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Situação do veículo', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar comunicação da venda do veículo', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Transferir propriedade de veículo (comprador)', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Solicitar certidão negativa de propriedade', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Acesse mais serviços de veículos', url: 'URL_AQUI'),
-    ];
-  }
-
-  // Serviços de Infrações
-  static List<VeiculoService> getInfracoes() {
-    return [
-      VeiculoService(nome: 'Consultar resultado exame de reciclagem', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Consultar resultado de indicação do condutor infrator', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Defesas de autuação', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Emissão extrato de multas', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Indicação do real infrator', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Processo administrativo de trânsito', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Recursos do JARI', url: 'URL_AQUI'),
-      VeiculoService(nome: 'Acesse mais serviços de infrações', url: 'URL_AQUI'),
+      VeiculoService(nome: 'Licenciamento Anual', url: 'https://www.detran.sc.gov.br/licenciamento-anual-veiculos/'),
+      VeiculoService(nome: 'Certidão', url: 'https://www.detran.sc.gov.br/certidao-veiculos/'),
+      VeiculoService(nome: 'Transferências de Veículos', url: 'https://www.detran.sc.gov.br/transferencia-de-veiculos/'),
+      VeiculoService(nome: 'Registro de Comunicação de Venda', url: 'https://www.detran.sc.gov.br/comunicacao-de-venda-veiculos/'),
+      VeiculoService(nome: 'Inclusão ou Baixa de Gravame Financeiro', url: 'https://www.detran.sc.gov.br/inclusao-ou-baixa-de-gravame-financeiro/'),
+      VeiculoService(nome: 'Registrar Intenção de Venda do Veículo', url: 'https://www.detran.sc.gov.br/registrar-intencao-de-venda-do-veiculo/'),
+      VeiculoService(nome: 'Licenciamento em Meio Digital', url: 'https://www.detran.sc.gov.br/licenciamento-em-meio-digital-veiculos/'),
+      VeiculoService(nome: 'RECALL', url: 'https://www.detran.sc.gov.br/recall/'),
+      VeiculoService(nome: 'Remarcação de Chassi', url: 'https://www.detran.sc.gov.br/remarcacao-de-chassi-veiculos/'),
+      VeiculoService(nome: 'Registro Inicial', url: 'https://www.detran.sc.gov.br/registro-inicial-veiculos/'),
     ];
   }
 }

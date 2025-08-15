@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'veiculos_model.dart';
 
 class VeiculosListaPage extends StatelessWidget {
@@ -21,47 +22,76 @@ class VeiculosListaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(titulo)),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.separated(
-          itemCount: servicos.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemBuilder: (context, index) {
-            final servico = servicos[index];
-            return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              elevation: 4,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(12),
-                onTap: () => _abrirUrl(servico.url),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20,
-                    horizontal: 16,
+      backgroundColor: AppColors.iceWhiteColor,
+      body: Column(
+        children: [
+          Container(
+            height: 120,
+            color: AppColors.blueColor1,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: AppColors.iceWhiteColor,
+                    ),
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 16),
-                      Expanded(
+                  const SizedBox(width: 8),
+                  Text(
+                    titulo,
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      color: AppColors.iceWhiteColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1,
+                children: servicos.map((servico) {
+                  return Material(
+                    color: AppColors.lightGrey,
+                    borderRadius: BorderRadius.circular(16),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(16),
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () => _abrirUrl(servico.url),
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(8),
                         child: Text(
                           servico.nome,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
                             fontFamily: 'Inter',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                }).toList(),
               ),
-            );
-          },
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'veiculos_lista_page.dart';
 import 'veiculos_service.dart';
 
@@ -66,15 +67,23 @@ class VeiculosHomePage extends StatelessWidget {
                     servicos: VeiculosServiceData.getVeiculos(),
                   ),
                 ),
-                const SizedBox(height: 16),   
+                const SizedBox(height: 16),
                 _buildServicoCard(
                   context,
                   titulo: 'INFRAÇÕES',
                   subtitulo: 'Visualize e pague multas com desconto',
                   icone: Icons.report,
-                  destino: VeiculosListaPage(
-                    titulo: 'Infrações',
-                    servicos: VeiculosServiceData.getInfracoes(),
+                  destino: Builder(
+                    builder: (context) {
+                      final uri = Uri.parse(
+                        'https://www.detran.sc.gov.br/infracoes/',
+                      );
+                      launchUrl(uri, mode: LaunchMode.externalApplication);
+                      Future.microtask(() => Navigator.pop(context));
+                      return const Scaffold(
+                        body: Center(child: CircularProgressIndicator()),
+                      );
+                    },
                   ),
                 ),
               ],
