@@ -1,6 +1,5 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/educacao/educacao_eja_page.dart';
-import 'package:blu_cidadao/pages/educacao/educacao_especial_page.dart';
 import 'package:blu_cidadao/pages/educacao/escolas_page.dart';
 import 'package:flutter/material.dart';
 
