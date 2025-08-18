@@ -267,10 +267,15 @@ class HomePage extends StatelessWidget {
                     serviceBox(
                       context,
                       'DETRAN-SC',
-                      Icons.directions_car,
+                      Image.asset(
+                        'assets/icons/logo-detran.png',
+                        width: 32,
+                        height: 32,
+                      ),
                       Colors.deepPurple,
                       const VeiculosHomePage(),
                     ),
+
                     serviceBox(
                       context,
                       'Documentos',
@@ -319,36 +324,46 @@ class HomePage extends StatelessWidget {
   Widget serviceBox(
     BuildContext context,
     String title,
-    IconData icon,
+    dynamic icon,
     Color color,
-    Widget route,
+    Widget page,
   ) {
-    return GestureDetector(
-      onTap: () =>
-          Navigator.push(context, MaterialPageRoute(builder: (_) => route)),
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xFFEFF1F3),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: color, size: 32),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
+    Widget iconWidget;
+    if (icon is IconData) {
+      iconWidget = Icon(icon, size: 32, color: color);
+    } else if (icon is Widget) {
+      iconWidget = icon;
+    } else {
+      iconWidget = SizedBox(); // fallback
+    }
+    {
+      return GestureDetector(
+        onTap: () =>
+            Navigator.push(context, MaterialPageRoute(builder: (_) => page)),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.borderColor.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              iconWidget,
+              const SizedBox(height: 8),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }

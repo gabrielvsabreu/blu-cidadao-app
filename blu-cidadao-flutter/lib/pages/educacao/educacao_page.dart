@@ -96,7 +96,7 @@ class EducacaoPage extends StatelessWidget {
         height: 160,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: BoxDecoration(
-          color: AppColors.lightGrey,
+          color: AppColors.borderColor.withOpacity(0.3),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
