@@ -59,14 +59,6 @@ class EducacaoPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 _buildServicoCard(
                   context,
-                  titulo: 'Educação Especial',
-                  subtitulo: 'Solicitação de Avaliação Multidisciplinar',
-                  icone: Icons.accessibility_new,
-                  destino: EducacaoEspecialPage(titulo: 'Educação Especial'),
-                ),
-                const SizedBox(height: 16),
-                _buildServicoCard(
-                  context,
                   titulo: 'EJA - Educação de Jovens e Adultos',
                   subtitulo: 'Matrícula na Educação de Jovens e Adultos',
                   icone: Icons.people_alt,

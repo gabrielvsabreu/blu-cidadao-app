@@ -72,36 +72,6 @@ class _EscolasPageState extends State<EscolasPage> {
     }
   }
 
-  Color corRede(String tipo) {
-    switch (tipo) {
-      case '1':
-        return Colors.red;
-      case '2':
-        return Colors.green;
-      case '3':
-        return Colors.blue;
-      case '4':
-        return Colors.orange;
-      default:
-        return Colors.grey;
-    }
-  }
-
-  String nomeRede(String tipo) {
-    switch (tipo) {
-      case '1':
-        return 'Federal';
-      case '2':
-        return 'Estadual';
-      case '3':
-        return 'Municipal';
-      case '4':
-        return 'Privada';
-      default:
-        return 'Desconhecida';
-    }
-  }
-
   Widget buildDropdown(
     String label,
     List<String> items,
@@ -155,6 +125,20 @@ class _EscolasPageState extends State<EscolasPage> {
               ),
             ),
           ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+            padding: EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              color: AppColors.lightGrey,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              'Encontre escolas da Educação Básica em Blumenau e região. Use os filtros para escolher se matricular.',
+              style: TextStyle(fontSize: 16, color: Colors.black87),
+              textAlign: TextAlign.center,
+            ),
+          ),
+
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -202,10 +186,7 @@ class _EscolasPageState extends State<EscolasPage> {
                             margin: const EdgeInsets.symmetric(vertical: 6),
                             elevation: 2,
                             child: ListTile(
-                              leading: Icon(
-                                Icons.school,
-                                color: corRede(escola.categoria),
-                              ),
+                              leading: Icon(Icons.school),
                               title: Text(
                                 escola.nome,
                                 style: const TextStyle(
