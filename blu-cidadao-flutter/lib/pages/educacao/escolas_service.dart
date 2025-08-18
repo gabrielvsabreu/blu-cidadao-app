@@ -1,16 +1,16 @@
 import 'dart:convert';
-import 'package:blu_cidadao/pages/escolas/escolas.dart';
+import 'package:blu_cidadao/pages/educacao/escolas.dart';
 import 'package:http/http.dart' as http;
 
 class EscolaService {
   Future<List<Escola>> fetchEscolas({
     String? municipio,
     String? rede,
-    String? etapa,
+    String? categoria,
   }) async {
     final uri = Uri.parse(
       'https://api-escolas-production.up.railway.app/escolas' +
-          '?municipio=${municipio ?? ''}&rede=${rede ?? ''}&etapa=${etapa ?? ''}',
+          '?municipio=${municipio ?? ''}&rede=${rede ?? ''}&categoria=${categoria ?? ''}',
     );
     final response = await http.get(uri);
     if (response.statusCode == 200) {
@@ -29,9 +29,9 @@ class EscolaService {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       return {
-        'municipios': List<String>.from(data['municipios']),
-        'redes': List<String>.from(data['redes']),
-        'etapas': List<String>.from(data['etapas']),
+        'municipios': List<String>.from(data['municipios'] ?? []),
+        'redes': List<String>.from(data['redes'] ?? []),
+        'categorias': List<String>.from(data['categorias'] ?? []),
       };
     } else {
       throw Exception('Erro ao buscar opções');

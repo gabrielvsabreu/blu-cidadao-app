@@ -1,16 +1,14 @@
+import 'package:blu_cidadao/pages/educacao/educacao_page.dart';
 import 'package:blu_cidadao/pages/menu/notifications_page.dart';
 import 'package:blu_cidadao/pages/menu/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import '../../common/constants/app_colors.dart';
-import '../../theme_provider.dart';
 import '../agendamento/agendamento_page.dart';
 import '../documentos/documentos_page.dart';
 import '../emergencia/emergencia_page.dart';
 import '../emprego/jobs_page.dart';
-import '../escolas/escolas_page.dart';
 import '../infraestrutura/infra_page.dart';
 import '../noticias/noticias_page.dart';
 import '../ouvidoria/ouvidoria_page.dart';
@@ -123,39 +121,6 @@ class HomePage extends StatelessWidget {
                     }),
                   ],
                 ),
-              ),
-            ),
-
-            // 🌗 RODAPÉ: Caixa com switch de tema
-            Container(
-              color: AppColors.iceWhiteColor,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-              child: Column(
-                children: [
-                  const Divider(color: Colors.grey, height: 1),
-                  const SizedBox(height: 2),
-                  Row(
-                    children: [
-                      const Icon(Icons.brightness_6, color: Colors.grey),
-                      const SizedBox(width: 12),
-                      Text(
-                        'Modo Escuro',
-                        style: GoogleFonts.inter(fontSize: 14),
-                      ),
-                      const Spacer(),
-                      Consumer<ThemeProvider>(
-                        builder: (context, themeProvider, _) {
-                          return Switch(
-                            value: themeProvider.isDarkMode,
-                            onChanged: (value) {
-                              themeProvider.toggleTheme(value);
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
               ),
             ),
           ],
@@ -304,7 +269,7 @@ class HomePage extends StatelessWidget {
                       'Educação',
                       Icons.school,
                       Colors.green,
-                      const EscolasPage(),
+                      const EducacaoPage(),
                     ),
                     serviceBox(
                       context,
