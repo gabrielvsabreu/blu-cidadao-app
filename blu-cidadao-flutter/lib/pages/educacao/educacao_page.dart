@@ -1,6 +1,5 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/educacao/educacao_eja_page.dart';
-import 'package:blu_cidadao/pages/educacao/educacao_especial_page.dart';
 import 'package:blu_cidadao/pages/educacao/escolas_page.dart';
 import 'package:flutter/material.dart';
 
@@ -55,14 +54,6 @@ class EducacaoPage extends StatelessWidget {
                   destino: EscolasPage(
                     titulo: 'Escolas do Ensino Fundamental e Médio',
                   ),
-                ),
-                const SizedBox(height: 16),
-                _buildServicoCard(
-                  context,
-                  titulo: 'Educação Especial',
-                  subtitulo: 'Solicitação de Avaliação Multidisciplinar',
-                  icone: Icons.accessibility_new,
-                  destino: EducacaoEspecialPage(titulo: 'Educação Especial'),
                 ),
                 const SizedBox(height: 16),
                 _buildServicoCard(
