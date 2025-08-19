@@ -61,6 +61,19 @@ dev_dependencies:
   leak_tracker_testing: ^3.0.1
   lints: ^6.0.0
   test_api: ^0.7.4
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo1.png"
+
+flutter_native_splash:
+  color: "#0047AB" # cor inicial de fundo
+  image: assets/images/logo1.png
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
