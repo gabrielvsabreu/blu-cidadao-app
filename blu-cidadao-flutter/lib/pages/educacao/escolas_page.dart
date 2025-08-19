@@ -149,7 +149,7 @@ class _EscolasPageState extends State<EscolasPage> {
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: const Text(
-              'Encontre escolas da Educação Básica em Blumenau. Use o filtro para escolher onde se matricular.',
+              'Encontre escolas da Educação Básica em Blumenau. Use o filtro para escolher onde matricular seu filho.',
               style: TextStyle(fontSize: 16, color: AppColors.blueColor1),
               textAlign: TextAlign.center,
             ),

@@ -86,7 +86,9 @@ class EscolaDetalhesPage extends StatelessWidget {
                 buildInfo('Endereço', escola.endereco),
                 buildInfo('CEP', escola.cep),
                 buildInfo('Telefone', escola.telefone),
+                const SizedBox(height: 12),
                 const Divider(),
+                const SizedBox(height: 12),
                 const Text(
                   'Infraestrutura',
                   style: TextStyle(
@@ -110,7 +112,9 @@ class EscolaDetalhesPage extends StatelessWidget {
                 ),
                 buildBool('Internet para Alunos', escola.internetAlunos),
                 buildBool('Alimentação Escolar', escola.alimentacao),
+                const SizedBox(height: 12),
                 const Divider(),
+                const SizedBox(height: 12),
                 const Text(
                   'Modalidades de Ensino',
                   style: TextStyle(
