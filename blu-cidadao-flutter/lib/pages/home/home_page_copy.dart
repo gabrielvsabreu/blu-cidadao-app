@@ -15,140 +15,10 @@ import '../ouvidoria/ouvidoria_page.dart';
 import '../saude/saude_page.dart';
 import '../detran/detran_home_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class ServiceItem {
-  final String title;
-  final dynamic icon;
-  final Color color;
-  final Widget page;
-  final List<String> subServices;
-
-  ServiceItem({
-    required this.title,
-    required this.icon,
-    required this.color,
-    required this.page,
-    this.subServices = const [],
-  });
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   final String nomeUsuario = 'Gabriel';
-  String query = "";
 
-  late List<ServiceItem> allServices;
-  List<ServiceItem> filteredServices = [];
-
-  @override
-  void initState() {
-    super.initState();
-
-    allServices = [
-      ServiceItem(
-        title: 'Ouvidoria',
-        icon: Icons.record_voice_over,
-        color: Colors.brown,
-        page: const OuvidoriaPage(),
-        subServices: [
-          'Registrar manifestação',
-          'Pesquisar manifestações',
-          'Acompanhar solicitações',
-        ],
-      ),
-      ServiceItem(
-        title: 'Agendamentos',
-        icon: Icons.calendar_month,
-        color: Colors.indigo,
-        page: const AgendamentoPage(),
-        subServices: ['Agendar atendimento', 'Ver agendamentos'],
-      ),
-      ServiceItem(
-        title: 'Educação',
-        icon: Image.asset('assets/icons/educacao.png', width: 32, height: 32),
-        color: Colors.green,
-        page: const EducacaoPage(),
-        subServices: ['Escolas municipais', 'Calendário escolar'],
-      ),
-      ServiceItem(
-        title: 'Emprego',
-        icon: Icons.work,
-        color: Colors.orange,
-        page: const JobsPage(),
-        subServices: ['Vagas de emprego', 'Programas de estágio'],
-      ),
-      ServiceItem(
-        title: 'DETRAN-SC',
-        icon: Image.asset(
-          'assets/icons/logo-detran.png',
-          width: 32,
-          height: 32,
-        ),
-        color: Colors.deepPurple,
-        page: const VeiculosHomePage(),
-        subServices: ['Habilitação', 'Veículos', 'Infrações'],
-      ),
-      ServiceItem(
-        title: 'Documentos',
-        icon: Icons.description,
-        color: Colors.blueGrey,
-        page: const DocumentosPage(),
-        subServices: ['Emitir documentos', 'Agendar emissão', 'Tirar dúvidas'],
-      ),
-      ServiceItem(
-        title: 'Saúde',
-        icon: Icons.local_hospital,
-        color: Colors.pink,
-        page: const SaudePage(),
-        subServices: ['Pronto atendimento', 'Consultas médicas'],
-      ),
-      ServiceItem(
-        title: 'Infraestrutura',
-        icon: Icons.water_drop,
-        color: Colors.teal,
-        page: const InfraestruturaPage(),
-        subServices: ['Água e Esgoto', 'Energia elétrica'],
-      ),
-      ServiceItem(
-        title: 'Notícias',
-        icon: Icons.article,
-        color: Colors.cyan,
-        page: const NoticiasPage(),
-        subServices: ['Últimas notícias', 'Notícias locais'],
-      ),
-      ServiceItem(
-        title: 'Emergência',
-        icon: Icons.warning_amber_rounded,
-        color: Colors.red,
-        page: const EmergenciaPage(),
-        subServices: ['Polícia', 'Bombeiros', 'SAMU'],
-      ),
-    ];
-
-    filteredServices = List.from(allServices);
-  }
-
-  void updateSearch(String input) {
-    setState(() {
-      query = input.toLowerCase();
-      if (query.isEmpty) {
-        filteredServices = List.from(allServices);
-      } else {
-        filteredServices = allServices.where((service) {
-          final inTitle = service.title.toLowerCase().contains(query);
-          final inSub = service.subServices.any(
-            (s) => s.toLowerCase().contains(query),
-          );
-          return inTitle || inSub;
-        }).toList();
-      }
-    });
-  }
+  const HomePage({super.key});
 
   Widget menuItem(IconData icon, String label, VoidCallback onTap) {
     return GestureDetector(
@@ -166,47 +36,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget serviceBox(ServiceItem service) {
-    Widget iconWidget;
-    if (service.icon is IconData) {
-      iconWidget = Icon(service.icon, size: 32, color: service.color);
-    } else if (service.icon is Widget) {
-      iconWidget = service.icon;
-    } else {
-      iconWidget = const SizedBox();
-    }
-
-    return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => service.page),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.borderColor.withOpacity(0.3),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            iconWidget,
-            const SizedBox(height: 8),
-            Text(
-              service.title,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -214,6 +43,7 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: Column(
           children: [
+            // 🔵 TOPO: Caixa azul escuro com avatar, nome e ID
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.4,
@@ -247,6 +77,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
+            // ⚪ MEIO: Itens do menu com fundo icewhite
             Expanded(
               child: Container(
                 color: AppColors.iceWhiteColor,
@@ -276,11 +108,17 @@ class _HomePageState extends State<HomePage> {
                       );
                     }),
                     const SizedBox(height: 32),
-                    menuItem(Icons.info_outline, 'Sobre', () {}),
+                    menuItem(Icons.info_outline, 'Sobre', () {
+                      // abrir página futura
+                    }),
                     const SizedBox(height: 32),
-                    menuItem(Icons.support_agent, 'Suporte', () {}),
+                    menuItem(Icons.support_agent, 'Suporte', () {
+                      // abrir suporte futuro
+                    }),
                     const SizedBox(height: 32),
-                    menuItem(Icons.logout, 'Logout', () {}),
+                    menuItem(Icons.logout, 'Logout', () {
+                      // ação de logout
+                    }),
                   ],
                 ),
               ),
@@ -288,13 +126,14 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Top bar
+              // Top bar: logo + menu
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -358,7 +197,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 12),
                     TextField(
-                      onChanged: updateSearch,
                       style: GoogleFonts.inter(color: AppColors.iceWhiteColor),
                       decoration: InputDecoration(
                         hintText: 'Digite o serviço que deseja...',
@@ -397,7 +235,87 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   childAspectRatio: 1.2,
-                  children: filteredServices.map((s) => serviceBox(s)).toList(),
+                  children: [
+                    serviceBox(
+                      context,
+                      'Ouvidoria',
+                      Icons.record_voice_over,
+                      Colors.brown,
+                      const OuvidoriaPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Agendamentos',
+                      Icons.calendar_month,
+                      Colors.indigo,
+                      const AgendamentoPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Educação',
+                      Image.asset(
+                        'assets/icons/educacao.png',
+                        width: 32,
+                        height: 32,
+                      ),
+                      Colors.green,
+                      const EducacaoPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Emprego',
+                      Icons.work,
+                      Colors.orange,
+                      const JobsPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'DETRAN-SC',
+                      Image.asset(
+                        'assets/icons/logo-detran.png',
+                        width: 32,
+                        height: 32,
+                      ),
+                      Colors.deepPurple,
+                      const VeiculosHomePage(),
+                    ),
+
+                    serviceBox(
+                      context,
+                      'Documentos',
+                      Icons.description,
+                      Colors.blueGrey,
+                      const DocumentosPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Saúde',
+                      Icons.local_hospital,
+                      Colors.pink,
+                      const SaudePage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Infraestrutura',
+                      Icons.water_drop,
+                      Colors.teal,
+                      const InfraestruturaPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Notícias',
+                      Icons.article,
+                      Colors.cyan,
+                      const NoticiasPage(),
+                    ),
+                    serviceBox(
+                      context,
+                      'Emergência',
+                      Icons.warning_amber_rounded,
+                      Colors.red,
+                      const EmergenciaPage(),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -405,5 +323,51 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Widget serviceBox(
+    BuildContext context,
+    String title,
+    dynamic icon,
+    Color color,
+    Widget page,
+  ) {
+    Widget iconWidget;
+    if (icon is IconData) {
+      iconWidget = Icon(icon, size: 32, color: color);
+    } else if (icon is Widget) {
+      iconWidget = icon;
+    } else {
+      iconWidget = SizedBox(); // fallback
+    }
+    {
+      return GestureDetector(
+        onTap: () =>
+            Navigator.push(context, MaterialPageRoute(builder: (_) => page)),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.borderColor.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              iconWidget,
+              const SizedBox(height: 8),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
   }
 }

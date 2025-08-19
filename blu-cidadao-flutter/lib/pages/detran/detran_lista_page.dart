@@ -1,7 +1,7 @@
+import 'package:blu_cidadao/pages/detran/detran_model.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:blu_cidadao/common/constants/app_colors.dart';
-import 'veiculos_model.dart';
 
 class VeiculosListaPage extends StatelessWidget {
   final String titulo;

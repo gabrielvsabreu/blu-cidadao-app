@@ -1,8 +1,8 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'veiculos_lista_page.dart';
-import 'veiculos_service.dart';
+import 'detran_lista_page.dart';
+import 'detran_service.dart';
 
 class VeiculosHomePage extends StatelessWidget {
   const VeiculosHomePage({super.key});

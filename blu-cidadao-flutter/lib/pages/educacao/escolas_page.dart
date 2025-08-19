@@ -1,4 +1,5 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
+import 'package:blu_cidadao/pages/educacao/escola_detalhes_page.dart';
 import 'package:blu_cidadao/pages/educacao/escolas.dart';
 import 'package:blu_cidadao/pages/educacao/escolas_service.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,13 @@ class _EscolasPageState extends State<EscolasPage> {
   final EscolaService service = EscolaService();
 
   List<Escola> escolas = [];
-  List<String> municipios = [];
-  List<String> redes = [];
+  List<Escola> escolasFiltradas = [];
+  List<String> dependencias = [];
   List<String> categorias = [];
 
-  String? municipioSelecionado;
-  String? redeSelecionada;
+  String? dependenciaSelecionada;
   String? categoriaSelecionada;
+  String termoBusca = '';
 
   bool carregando = true;
   String? erro;
@@ -36,8 +37,7 @@ class _EscolasPageState extends State<EscolasPage> {
     try {
       final opcoes = await service.fetchOpcoes();
       setState(() {
-        municipios = List<String>.from(opcoes['municipios'] ?? []);
-        redes = List<String>.from(opcoes['redes'] ?? []);
+        dependencias = List<String>.from(opcoes['dependencias'] ?? []);
         categorias = List<String>.from(opcoes['categorias'] ?? []);
       });
       await carregarEscolas();
@@ -56,12 +56,17 @@ class _EscolasPageState extends State<EscolasPage> {
     });
     try {
       final resultado = await service.fetchEscolas(
-        municipio: municipioSelecionado,
-        rede: redeSelecionada,
+        dependencia: dependenciaSelecionada,
         categoria: categoriaSelecionada,
       );
+
+      resultado.sort(
+        (a, b) => a.nome.toLowerCase().compareTo(b.nome.toLowerCase()),
+      );
+
       setState(() {
         escolas = resultado;
+        aplicarFiltroBusca();
         carregando = false;
       });
     } catch (e) {
@@ -70,6 +75,14 @@ class _EscolasPageState extends State<EscolasPage> {
         carregando = false;
       });
     }
+  }
+
+  void aplicarFiltroBusca() {
+    setState(() {
+      escolasFiltradas = escolas
+          .where((e) => e.nome.toLowerCase().contains(termoBusca.toLowerCase()))
+          .toList();
+    });
   }
 
   Widget buildDropdown(
@@ -113,7 +126,7 @@ class _EscolasPageState extends State<EscolasPage> {
                   ),
                   const SizedBox(width: 8),
                   const Text(
-                    'Educação',
+                    'Escolas',
                     style: TextStyle(
                       fontFamily: 'Inter',
                       color: AppColors.iceWhiteColor,
@@ -126,44 +139,52 @@ class _EscolasPageState extends State<EscolasPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-            padding: EdgeInsets.all(12.0),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 12.0,
+            ),
+            padding: const EdgeInsets.all(12.0),
             decoration: BoxDecoration(
               color: AppColors.borderColor.withOpacity(0.3),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Text(
-              'Encontre escolas da Educação Básica em Blumenau. Use os filtros para escolher onde se matricular.',
-              style: TextStyle(fontSize: 16, color: Colors.black87),
+            child: const Text(
+              'Encontre escolas da Educação Básica em Blumenau. Use o filtro para escolher onde se matricular.',
+              style: TextStyle(fontSize: 16, color: AppColors.blueColor1),
               textAlign: TextAlign.center,
             ),
           ),
+
+          // 🔍 Campo de busca acima da caixa de seleção
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Buscar escola...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              onChanged: (value) {
+                termoBusca = value;
+                aplicarFiltroBusca();
+              },
+            ),
+          ),
+          const SizedBox(height: 12),
 
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 children: [
-                  if (municipios.isNotEmpty)
+                  if (dependencias.isNotEmpty)
                     buildDropdown(
-                      'Município',
-                      municipios,
-                      municipioSelecionado,
-                      (val) => setState(() => municipioSelecionado = val),
-                    ),
-                  if (redes.isNotEmpty)
-                    buildDropdown(
-                      'Rede',
-                      redes,
-                      redeSelecionada,
-                      (val) => setState(() => redeSelecionada = val),
-                    ),
-                  if (categorias.isNotEmpty)
-                    buildDropdown(
-                      'Categoria',
-                      categorias,
-                      categoriaSelecionada,
-                      (val) => setState(() => categoriaSelecionada = val),
+                      'Dependência',
+                      dependencias,
+                      dependenciaSelecionada,
+                      (val) => setState(() => dependenciaSelecionada = val),
                     ),
                   const SizedBox(height: 12),
                   if (carregando)
@@ -172,28 +193,39 @@ class _EscolasPageState extends State<EscolasPage> {
                     )
                   else if (erro != null)
                     Expanded(child: Center(child: Text(erro!)))
-                  else if (escolas.isEmpty)
+                  else if (escolasFiltradas.isEmpty)
                     const Expanded(
                       child: Center(child: Text('Nenhuma escola encontrada.')),
                     )
                   else
                     Expanded(
                       child: ListView.builder(
-                        itemCount: escolas.length,
+                        itemCount: escolasFiltradas.length,
                         itemBuilder: (context, index) {
-                          final escola = escolas[index];
+                          final escola = escolasFiltradas[index];
                           return Card(
                             margin: const EdgeInsets.symmetric(vertical: 6),
                             elevation: 2,
                             child: ListTile(
-                              leading: Icon(Icons.school),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        EscolaDetalhesPage(escola: escola),
+                                  ),
+                                );
+                              },
+                              leading: const Icon(Icons.school),
+                              iconColor: AppColors.blueColor1,
                               title: Text(
                                 escola.nome,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  color: AppColors.blueColor1,
                                 ),
                               ),
-                              subtitle: Text(escola.municipio),
+                              subtitle: Text(escola.categoria),
                             ),
                           );
                         },

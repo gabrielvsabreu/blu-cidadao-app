@@ -4,13 +4,12 @@ import 'package:http/http.dart' as http;
 
 class EscolaService {
   Future<List<Escola>> fetchEscolas({
-    String? municipio,
-    String? rede,
+    String? dependencia,
     String? categoria,
   }) async {
     final uri = Uri.parse(
       'https://api-escolas-production.up.railway.app/escolas' +
-          '?municipio=${municipio ?? ''}&rede=${rede ?? ''}&categoria=${categoria ?? ''}',
+          '?dependencia=${dependencia ?? ''}&categoria=${categoria ?? ''}',
     );
     final response = await http.get(uri);
     if (response.statusCode == 200) {
@@ -29,8 +28,7 @@ class EscolaService {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       return {
-        'municipios': List<String>.from(data['municipios'] ?? []),
-        'redes': List<String>.from(data['redes'] ?? []),
+        'dependencias': List<String>.from(data['dependencias'] ?? []),
         'categorias': List<String>.from(data['categorias'] ?? []),
       };
     } else {

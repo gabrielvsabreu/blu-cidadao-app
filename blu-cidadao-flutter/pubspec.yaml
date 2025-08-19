@@ -80,6 +80,7 @@ flutter:
     - assets/images/logo3.png
     - assets/images/mulher-celular.png
     - assets/icons/logo-detran.png
+    - assets/icons/educacao.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

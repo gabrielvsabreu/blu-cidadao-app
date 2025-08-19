@@ -1,4 +1,4 @@
-import 'veiculos_model.dart';
+import 'detran_model.dart';
 
 class VeiculosServiceData {
   // Serviços de Habilitação
