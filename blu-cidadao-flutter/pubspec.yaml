@@ -77,7 +77,7 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/logo6.png"
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/images/logo5.png" 
+  adaptive_icon_foreground: "assets/images/logo5.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -103,8 +103,12 @@ flutter:
     - assets/icons/educacao.png
     - assets/icons/ouvidoria.png
     - assets/icons/trabalho.png
+<<<<<<< HEAD
     - assets/pdf/requerimento_tre.pdf
     - assets/pdf/titulo_tre.pdf
+=======
+    - assets/icons/samae-celesc-logo.png
+>>>>>>> 6589fd6ea01c11c466e08c02166495412d1bf642
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

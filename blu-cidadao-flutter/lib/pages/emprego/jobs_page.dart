@@ -97,220 +97,222 @@ class _JobsPageState extends State<JobsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      body: Column(
-        children: [
-          // Cabeçalho azul
-          Container(
-            height: 120,
-            color: AppColors.blueColor1,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.iceWhiteColor,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        body: Column(
+          children: [
+            // Cabeçalho azul
+            Container(
+              height: 120,
+              color: AppColors.blueColor1,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.whiteColor,
+                      ),
+                      onPressed: () => Navigator.pop(context),
                     ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Vagas de Emprego',
-                    style: GoogleFonts.inter(
-                      color: AppColors.iceWhiteColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
+                    const SizedBox(width: 8),
+                    Text(
+                      'Vagas de Emprego',
+                      style: GoogleFonts.inter(
+                        color: AppColors.whiteColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
 
-          // Corpo
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  // Busca
-                  TextField(
-                    controller: _searchController,
-                    style: GoogleFonts.inter(),
-                    decoration: InputDecoration(
-                      labelText: 'Buscar função',
-                      labelStyle: GoogleFonts.inter(),
-                      prefixIcon: const Icon(Icons.search),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
+            // Corpo
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    // Busca
+                    TextField(
+                      controller: _searchController,
+                      style: GoogleFonts.inter(),
+                      decoration: InputDecoration(
+                        labelText: 'Buscar função',
+                        labelStyle: GoogleFonts.inter(),
+                        prefixIcon: const Icon(Icons.search),
+                        filled: true,
+                        fillColor: AppColors.iceWhiteColor,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
                       ),
+                      onSubmitted: (_) => loadJobs(),
                     ),
-                    onSubmitted: (_) => loadJobs(),
-                  ),
-                  const SizedBox(height: 12),
+                    const SizedBox(height: 12),
 
-                  // Chips
-                  Row(
-                    children: [
-                      ChoiceChip(
-                        label: Text(
-                          'Todos',
-                          style: GoogleFonts.inter(
-                            color: jobType == 'all'
-                                ? Colors.white
-                                : AppColors.blueColor1,
-                          ),
-                        ),
-                        selected: jobType == 'all',
-                        selectedColor: AppColors.blueColor1,
-                        backgroundColor: Colors.grey[300],
-                        onSelected: (_) {
-                          setState(() => jobType = 'all');
-                          loadJobs();
-                        },
-                      ),
-                      const SizedBox(width: 8),
-                      ChoiceChip(
-                        label: Text(
-                          'Presencial',
-                          style: GoogleFonts.inter(
-                            color: jobType == 'presencial'
-                                ? Colors.white
-                                : AppColors.blueColor1,
-                          ),
-                        ),
-                        selected: jobType == 'presencial',
-                        selectedColor: AppColors.blueColor1,
-                        backgroundColor: Colors.grey[300],
-                        onSelected: (_) {
-                          setState(() => jobType = 'presencial');
-                          loadJobs();
-                        },
-                      ),
-                      const SizedBox(width: 8),
-                      ChoiceChip(
-                        label: Text(
-                          'Home Office',
-                          style: GoogleFonts.inter(
-                            color: jobType == 'homeoffice'
-                                ? Colors.white
-                                : AppColors.blueColor1,
-                          ),
-                        ),
-                        selected: jobType == 'homeoffice',
-                        selectedColor: AppColors.blueColor1,
-                        backgroundColor: Colors.grey[300],
-                        onSelected: (_) {
-                          setState(() => jobType = 'homeoffice');
-                          loadJobs();
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Lista de vagas
-                  Expanded(
-                    child: isLoading
-                        ? const Center(child: CircularProgressIndicator())
-                        : jobs.isEmpty
-                        ? Center(
-                            child: Text(
-                              'Nenhuma vaga encontrada',
-                              style: GoogleFonts.inter(),
+                    // Chips
+                    Row(
+                      children: [
+                        ChoiceChip(
+                          label: Text(
+                            'Todos',
+                            style: GoogleFonts.inter(
+                              color: jobType == 'all'
+                                  ? Colors.white
+                                  : AppColors.blueColor1,
                             ),
-                          )
-                        : ListView.builder(
-                            itemCount: jobs.length,
-                            itemBuilder: (context, index) {
-                              final job = jobs[index];
-                              final title = job['title'] ?? 'Sem título';
-                              final company =
-                                  job['company']?['display_name'] ??
-                                  'Empresa não informada';
-                              final location =
-                                  job['location']?['display_name'] ??
-                                  'Local não informado';
-                              final salary = job['salary_min'] != null
-                                  ? 'R\$${job['salary_min'].toString()}+'
-                                  : 'Salário não informado';
-
-                              return InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => JobDetailPage(job: job),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                    vertical: 8,
-                                  ),
-                                  padding: const EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.borderColor.withOpacity(
-                                      0.3,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        title,
-                                        style: GoogleFonts.inter(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.blueColor1,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 6),
-                                      Text(
-                                        company,
-                                        style: GoogleFonts.inter(
-                                          fontSize: 14,
-                                          color: Colors.black87,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        location,
-                                        style: GoogleFonts.inter(
-                                          fontSize: 13,
-                                          color: Colors.black54,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        salary,
-                                        style: GoogleFonts.inter(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.blueColor1,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
                           ),
-                  ),
-                ],
+                          selected: jobType == 'all',
+                          selectedColor: AppColors.blueColor1,
+                          backgroundColor: AppColors.lightGrey,
+                          onSelected: (_) {
+                            setState(() => jobType = 'all');
+                            loadJobs();
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                        ChoiceChip(
+                          label: Text(
+                            'Presencial',
+                            style: GoogleFonts.inter(
+                              color: jobType == 'presencial'
+                                  ? Colors.white
+                                  : AppColors.blueColor1,
+                            ),
+                          ),
+                          selected: jobType == 'presencial',
+                          selectedColor: AppColors.blueColor1,
+                          backgroundColor: AppColors.lightGrey,
+                          onSelected: (_) {
+                            setState(() => jobType = 'presencial');
+                            loadJobs();
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                        ChoiceChip(
+                          label: Text(
+                            'Home Office',
+                            style: GoogleFonts.inter(
+                              color: jobType == 'homeoffice'
+                                  ? Colors.white
+                                  : AppColors.blueColor1,
+                            ),
+                          ),
+                          selected: jobType == 'homeoffice',
+                          selectedColor: AppColors.blueColor1,
+                          backgroundColor: AppColors.lightGrey,
+                          onSelected: (_) {
+                            setState(() => jobType = 'homeoffice');
+                            loadJobs();
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Lista de vagas
+                    Expanded(
+                      child: isLoading
+                          ? const Center(child: CircularProgressIndicator())
+                          : jobs.isEmpty
+                          ? Center(
+                              child: Text(
+                                'Nenhuma vaga encontrada',
+                                style: GoogleFonts.inter(),
+                              ),
+                            )
+                          : ListView.builder(
+                              itemCount: jobs.length,
+                              itemBuilder: (context, index) {
+                                final job = jobs[index];
+                                final title = job['title'] ?? 'Sem título';
+                                final company =
+                                    job['company']?['display_name'] ??
+                                    'Empresa não informada';
+                                final location =
+                                    job['location']?['display_name'] ??
+                                    'Local não informado';
+                                final salary = job['salary_min'] != null
+                                    ? 'R\$${job['salary_min'].toString()}+'
+                                    : 'Salário não informado';
+
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => JobDetailPage(job: job),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    margin: const EdgeInsets.symmetric(
+                                      vertical: 8,
+                                    ),
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.borderColor.withOpacity(
+                                        0.3,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          title,
+                                          style: GoogleFonts.inter(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.blueColor1,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 6),
+                                        Text(
+                                          company,
+                                          style: GoogleFonts.inter(
+                                            fontSize: 14,
+                                            color: Colors.black87,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          location,
+                                          style: GoogleFonts.inter(
+                                            fontSize: 13,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          salary,
+                                          style: GoogleFonts.inter(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.blueColor1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

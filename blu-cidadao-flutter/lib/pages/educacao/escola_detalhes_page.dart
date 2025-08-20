@@ -43,96 +43,98 @@ class EscolaDetalhesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      body: Column(
-        children: [
-          Container(
-            height: 120,
-            color: AppColors.blueColor1,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.iceWhiteColor,
+        body: Column(
+          children: [
+            Container(
+              height: 120,
+              color: AppColors.blueColor1,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.iceWhiteColor,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      escola.nome,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        color: AppColors.iceWhiteColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(20),
                 children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.iceWhiteColor,
+                  buildInfo('Dependência', escola.dependencia),
+                  buildInfo('Categoria', escola.categoria),
+                  buildInfo('Localização', escola.localizacao),
+                  buildInfo('Endereço', escola.endereco),
+                  buildInfo('CEP', escola.cep),
+                  buildInfo('Telefone', escola.telefone),
+                  const SizedBox(height: 12),
+                  const Divider(),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Infraestrutura',
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
-                    onPressed: () => Navigator.pop(context),
                   ),
-                  const SizedBox(width: 8),
-                  Text(
-                    escola.nome,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      color: AppColors.iceWhiteColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
+                  buildBool('Área Verde', escola.areaVerde),
+                  buildBool('Auditório', escola.auditorio),
+                  buildBool('Banheiro Acessível', escola.banheiroPNE),
+                  buildBool('Biblioteca', escola.biblioteca),
+                  buildBool('Laboratório de Informática', escola.labInfo),
+                  buildBool('Pátio Coberto', escola.patioCoberto),
+                  buildBool('Parque Infantil', escola.parqueInfantil),
+                  buildBool('Quadra de Esportes', escola.quadraEsporte),
+                  buildBool('Refeitório', escola.refeitorio),
+                  buildBool(
+                    'Recursos de Acessibilidade',
+                    escola.recursosAccessibilidade,
+                  ),
+                  buildBool('Internet para Alunos', escola.internetAlunos),
+                  buildBool('Alimentação Escolar', escola.alimentacao),
+                  const SizedBox(height: 12),
+                  const Divider(),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Modalidades de Ensino',
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
+                  buildBool('Educação Infantil', escola.edInfantil),
+                  buildBool('Ensino Fundamental', escola.edFundamental),
+                  buildBool('Ensino Médio', escola.edMedio),
+                  buildBool('Educação Profissional', escola.edProfissional),
+                  buildBool('Educação de Jovens e Adultos (EJA)', escola.edEJA),
+                  buildBool('Educação Especial', escola.edEspecial),
                 ],
               ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(20),
-              children: [
-                buildInfo('Dependência', escola.dependencia),
-                buildInfo('Categoria', escola.categoria),
-                buildInfo('Localização', escola.localizacao),
-                buildInfo('Endereço', escola.endereco),
-                buildInfo('CEP', escola.cep),
-                buildInfo('Telefone', escola.telefone),
-                const SizedBox(height: 12),
-                const Divider(),
-                const SizedBox(height: 12),
-                const Text(
-                  'Infraestrutura',
-                  style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                buildBool('Área Verde', escola.areaVerde),
-                buildBool('Auditório', escola.auditorio),
-                buildBool('Banheiro Acessível', escola.banheiroPNE),
-                buildBool('Biblioteca', escola.biblioteca),
-                buildBool('Laboratório de Informática', escola.labInfo),
-                buildBool('Pátio Coberto', escola.patioCoberto),
-                buildBool('Parque Infantil', escola.parqueInfantil),
-                buildBool('Quadra de Esportes', escola.quadraEsporte),
-                buildBool('Refeitório', escola.refeitorio),
-                buildBool(
-                  'Recursos de Acessibilidade',
-                  escola.recursosAccessibilidade,
-                ),
-                buildBool('Internet para Alunos', escola.internetAlunos),
-                buildBool('Alimentação Escolar', escola.alimentacao),
-                const SizedBox(height: 12),
-                const Divider(),
-                const SizedBox(height: 12),
-                const Text(
-                  'Modalidades de Ensino',
-                  style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                buildBool('Educação Infantil', escola.edInfantil),
-                buildBool('Ensino Fundamental', escola.edFundamental),
-                buildBool('Ensino Médio', escola.edMedio),
-                buildBool('Educação Profissional', escola.edProfissional),
-                buildBool('Educação de Jovens e Adultos (EJA)', escola.edEJA),
-                buildBool('Educação Especial', escola.edEspecial),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
