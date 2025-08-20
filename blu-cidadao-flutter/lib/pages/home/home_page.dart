@@ -108,8 +108,8 @@ class _HomePageState extends State<HomePage> {
         subServices: ['Pronto atendimento', 'Consultas médicas'],
       ),
       ServiceItem(
-        title: 'Infraestrutura',
-        icon: Icons.water_drop,
+        title: 'Água, Esgoto e Energia (SAMAE e CELESC)',
+        icon: Image.asset('assets/icons/samae-celesc-logo.png', height: 32),
         color: Colors.teal,
         page: const InfraestruturaPage(),
         subServices: ['Água e Esgoto', 'Energia elétrica'],
