@@ -1,7 +1,10 @@
 import 'package:blu_cidadao/pages/educacao/educacao_page.dart';
 import 'package:blu_cidadao/pages/menu/notificacoes_page.dart';
 import 'package:blu_cidadao/pages/menu/Conta/conta_page.dart';
+import 'package:blu_cidadao/pages/menu/sobre_page.dart';
+import 'package:blu_cidadao/pages/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/constants/app_colors.dart';
@@ -197,204 +200,224 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.4,
-              color: AppColors.blueColor1,
-              padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const CircleAvatar(
-                    radius: 35,
-                    backgroundImage: AssetImage('assets/images/avatar.png'),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    nomeUsuario,
-                    style: GoogleFonts.inter(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.iceWhiteColor,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'ID: 2984000063',
-                    style: GoogleFonts.inter(
-                      fontSize: 14,
-                      color: AppColors.iceWhiteColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                color: AppColors.iceWhiteColor,
-                child: ListView(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 24,
-                    horizontal: 20,
-                  ),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.dark, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        drawer: Drawer(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.4,
+                color: AppColors.blueColor1,
+                padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    menuItem(Icons.dashboard, 'Início', () {
-                      Navigator.pop(context);
-                    }),
-                    const SizedBox(height: 32),
-                    menuItem(Icons.account_circle, 'Conta', () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const ContaPage()),
-                      );
-                    }),
-                    const SizedBox(height: 32),
-                    menuItem(Icons.notifications, 'Notificações', () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const NotificationsPage(),
-                        ),
-                      );
-                    }),
-                    const SizedBox(height: 32),
-                    menuItem(Icons.info_outline, 'Ajuda', () {}),
-                    const SizedBox(height: 32),
-                    menuItem(
-                      Icons.support_agent,
-                      'Privacidade e permissão',
-                      () {},
+                    const CircleAvatar(
+                      radius: 35,
+                      backgroundImage: AssetImage('assets/images/avatar.png'),
                     ),
-                    const SizedBox(height: 32),
-                    menuItem(Icons.logout, 'Sobre o BluCidadão', () {}),
-                    const SizedBox(height: 32),
-                    menuItem(Icons.logout, 'Logout', () {}),
+                    const SizedBox(height: 16),
+                    Text(
+                      nomeUsuario,
+                      style: GoogleFonts.inter(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'ID: 2984000063',
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Top bar
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset('assets/images/logo2.png', height: 30),
-                  Builder(
-                    builder: (context) => IconButton(
-                      icon: const Icon(Icons.menu),
-                      onPressed: () => Scaffold.of(context).openDrawer(),
+              Expanded(
+                child: Container(
+                  color: AppColors.whiteColor,
+                  child: ListView(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 24,
+                      horizontal: 20,
                     ),
+                    children: [
+                      menuItem(Icons.account_circle, 'Conta', () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ContaPage()),
+                        );
+                      }),
+                      const SizedBox(height: 32),
+                      menuItem(Icons.info_outline, 'Sobre o BluCidadão', () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const SobrePage()),
+                        );
+                      }),
+                      const SizedBox(height: 32),
+                      menuItem(Icons.logout, 'Logout', () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const OnboardingPage(),
+                          ),
+                        );
+                      }),
+                    ],
                   ),
-                ],
+                ),
               ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 28,
-                    backgroundImage: AssetImage('assets/images/avatar.png'),
+            ],
+          ),
+        ),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Top bar
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset('assets/images/logo2.png', height: 30),
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: const Icon(
+                          Icons.menu,
+                          color: AppColors.blueColor1,
+                        ),
+                        onPressed: () => Scaffold.of(context).openDrawer(),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 28,
+                      backgroundImage: AssetImage('assets/images/avatar.png'),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bem-vindo(a), $nomeUsuario!',
+                          style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Como podemos te ajudar hoje?',
+                          style: GoogleFonts.inter(
+                            fontSize: 13,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: const Icon(
+                          Icons.notifications,
+                          color: AppColors.blueColor1,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NotificacoesPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColors.blueColor1,
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  const SizedBox(width: 12),
-                  Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Bem-vindo(a), $nomeUsuario!',
+                        'Buscar serviço',
                         style: GoogleFonts.inter(
                           fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black87,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.whiteColor,
                         ),
                       ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Como podemos te ajudar hoje?',
-                        style: GoogleFonts.inter(
-                          fontSize: 13,
-                          color: Colors.grey[700],
+                      const SizedBox(height: 12),
+                      TextField(
+                        onChanged: updateSearch,
+                        style: GoogleFonts.inter(color: AppColors.whiteColor),
+                        decoration: InputDecoration(
+                          hintText: 'Digite o serviço que deseja...',
+                          hintStyle: GoogleFonts.inter(color: Colors.white70),
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: AppColors.whiteColor,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.15),
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 14,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: AppColors.blueColor1,
-                  borderRadius: BorderRadius.circular(16),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Buscar serviço',
-                      style: GoogleFonts.inter(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.iceWhiteColor,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    TextField(
-                      onChanged: updateSearch,
-                      style: GoogleFonts.inter(color: AppColors.iceWhiteColor),
-                      decoration: InputDecoration(
-                        hintText: 'Digite o serviço que deseja...',
-                        hintStyle: GoogleFonts.inter(color: Colors.white70),
-                        prefixIcon: const Icon(
-                          Icons.search,
-                          color: AppColors.iceWhiteColor,
-                        ),
-                        filled: true,
-                        fillColor: Colors.white.withOpacity(0.15),
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 14,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 24),
+                Text(
+                  'Serviços disponíveis',
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.blueColor1,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              Text(
-                'Serviços disponíveis',
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.blueColor1,
+                const SizedBox(height: 12),
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 1.2,
+                    children: filteredServices
+                        .map((s) => serviceBox(s))
+                        .toList(),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 1.2,
-                  children: filteredServices.map((s) => serviceBox(s)).toList(),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
