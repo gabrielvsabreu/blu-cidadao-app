@@ -1,6 +1,6 @@
 import 'package:blu_cidadao/pages/educacao/educacao_page.dart';
-import 'package:blu_cidadao/pages/menu/notifications_page.dart';
-import 'package:blu_cidadao/pages/menu/profile_page.dart';
+import 'package:blu_cidadao/pages/menu/notificacoes_page.dart';
+import 'package:blu_cidadao/pages/menu/Conta/conta_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -260,10 +260,10 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pop(context);
                     }),
                     const SizedBox(height: 32),
-                    menuItem(Icons.account_circle, 'Perfil', () {
+                    menuItem(Icons.account_circle, 'Conta', () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ProfilePage()),
+                        MaterialPageRoute(builder: (_) => const ContaPage()),
                       );
                     }),
                     const SizedBox(height: 32),
@@ -276,9 +276,15 @@ class _HomePageState extends State<HomePage> {
                       );
                     }),
                     const SizedBox(height: 32),
-                    menuItem(Icons.info_outline, 'Sobre', () {}),
+                    menuItem(Icons.info_outline, 'Ajuda', () {}),
                     const SizedBox(height: 32),
-                    menuItem(Icons.support_agent, 'Suporte', () {}),
+                    menuItem(
+                      Icons.support_agent,
+                      'Privacidade e permissão',
+                      () {},
+                    ),
+                    const SizedBox(height: 32),
+                    menuItem(Icons.logout, 'Sobre o BluCidadão', () {}),
                     const SizedBox(height: 32),
                     menuItem(Icons.logout, 'Logout', () {}),
                   ],

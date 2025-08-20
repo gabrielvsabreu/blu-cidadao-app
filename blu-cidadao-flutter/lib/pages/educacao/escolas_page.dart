@@ -42,10 +42,12 @@ class _EscolasPageState extends State<EscolasPage> {
       });
       await carregarEscolas();
     } catch (e) {
-      setState(() {
-        erro = 'Erro ao carregar filtros: $e';
-        carregando = false;
-      });
+      if (mounted) {
+        setState(() {
+          erro = 'Erro ao carregar filtros: $e';
+          carregando = false;
+        });
+      }
     }
   }
 
