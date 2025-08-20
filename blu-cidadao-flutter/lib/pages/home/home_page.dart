@@ -25,14 +25,12 @@ class HomePage extends StatefulWidget {
 class ServiceItem {
   final String title;
   final dynamic icon;
-  final Color color;
   final Widget page;
   final List<String> subServices;
 
   ServiceItem({
     required this.title,
     required this.icon,
-    required this.color,
     required this.page,
     this.subServices = const [],
   });
@@ -53,7 +51,6 @@ class _HomePageState extends State<HomePage> {
       ServiceItem(
         title: 'Ouvidoria',
         icon: Image.asset('assets/icons/ouvidoria.png', width: 32, height: 32),
-        color: Colors.brown,
         page: const OuvidoriaPage(),
         subServices: [
           'Registrar manifestação',
@@ -64,21 +61,18 @@ class _HomePageState extends State<HomePage> {
       ServiceItem(
         title: 'Agendamentos',
         icon: Icons.calendar_month,
-        color: Colors.indigo,
         page: const AgendamentoPage(),
         subServices: ['Agendar atendimento', 'Ver agendamentos'],
       ),
       ServiceItem(
         title: 'Educação',
         icon: Image.asset('assets/icons/educacao.png', width: 32, height: 32),
-        color: Colors.green,
         page: const EducacaoPage(),
         subServices: ['Escolas municipais', 'Calendário escolar'],
       ),
       ServiceItem(
         title: 'Vagas de Emprego',
         icon: Image.asset('assets/icons/trabalho.png', width: 32, height: 32),
-        color: Colors.orange,
         page: const JobsPage(),
         subServices: ['Vagas de emprego', 'Programas de estágio'],
       ),
@@ -89,42 +83,36 @@ class _HomePageState extends State<HomePage> {
           width: 32,
           height: 32,
         ),
-        color: Colors.deepPurple,
         page: const VeiculosHomePage(),
         subServices: ['Habilitação', 'Veículos', 'Infrações'],
       ),
       ServiceItem(
         title: 'Documentos',
         icon: Icons.description,
-        color: Colors.blueGrey,
         page: const DocumentosHomePage(),
         subServices: ['Emitir documentos', 'Agendar emissão', 'Tirar dúvidas'],
       ),
       ServiceItem(
         title: 'Saúde',
         icon: Icons.local_hospital,
-        color: Colors.pink,
         page: const SaudePage(),
         subServices: ['Pronto atendimento', 'Consultas médicas'],
       ),
       ServiceItem(
         title: 'Água, Esgoto e Energia (SAMAE e CELESC)',
         icon: Image.asset('assets/icons/samae-celesc-logo.png', height: 32),
-        color: Colors.teal,
         page: const InfraestruturaPage(),
         subServices: ['Água e Esgoto', 'Energia elétrica'],
       ),
       ServiceItem(
         title: 'Notícias',
         icon: Icons.article,
-        color: Colors.cyan,
         page: const NoticiasPage(),
         subServices: ['Últimas notícias', 'Notícias locais'],
       ),
       ServiceItem(
         title: 'Emergência',
         icon: Icons.warning_amber_rounded,
-        color: Colors.red,
         page: const EmergenciaPage(),
         subServices: ['Polícia', 'Bombeiros', 'SAMU'],
       ),
@@ -169,7 +157,7 @@ class _HomePageState extends State<HomePage> {
   Widget serviceBox(ServiceItem service) {
     Widget iconWidget;
     if (service.icon is IconData) {
-      iconWidget = Icon(service.icon, size: 32, color: service.color);
+      iconWidget = Icon(service.icon, size: 32);
     } else if (service.icon is Widget) {
       iconWidget = service.icon;
     } else {
