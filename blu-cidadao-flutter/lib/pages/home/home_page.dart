@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/constants/app_colors.dart';
 import '../agendamento/agendamento_page.dart';
-import '../documentos/documentos_page.dart';
+import '../documentos/documentos_home_page.dart';
 import '../emergencia/emergencia_page.dart';
 import '../emprego/jobs_page.dart';
 import '../infraestrutura/infra_page.dart';
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
         title: 'Documentos',
         icon: Icons.description,
         color: Colors.blueGrey,
-        page: const DocumentosPage(),
+        page: const DocumentosHomePage(),
         subServices: ['Emitir documentos', 'Agendar emissão', 'Tirar dúvidas'],
       ),
       ServiceItem(
