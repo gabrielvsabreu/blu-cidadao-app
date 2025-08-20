@@ -73,7 +73,10 @@ class OnboardingPage extends StatelessWidget {
                         color: Colors.black45,
                       ),
                       children: [
-                        TextSpan(text: 'Ao entrar, você concorda com nosso\n'),
+                        TextSpan(
+                          text: 'Ao entrar, você concorda com nosso\n',
+                          style: TextStyle(color: AppColors.blueColor1),
+                        ),
                         TextSpan(
                           text: 'termo de responsabilidade',
                           style: TextStyle(
@@ -81,7 +84,10 @@ class OnboardingPage extends StatelessWidget {
                             color: Colors.blue,
                           ),
                         ),
-                        TextSpan(text: ' e '),
+                        TextSpan(
+                          text: ' e ',
+                          style: TextStyle(color: AppColors.blueColor1),
+                        ),
                         TextSpan(
                           text: 'política de privacidade',
                           style: TextStyle(

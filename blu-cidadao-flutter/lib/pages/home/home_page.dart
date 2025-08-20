@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     allServices = [
       ServiceItem(
         title: 'Ouvidoria',
-        icon: Icons.record_voice_over,
+        icon: Image.asset('assets/icons/ouvidoria.png', width: 32, height: 32),
         color: Colors.brown,
         page: const OuvidoriaPage(),
         subServices: [
