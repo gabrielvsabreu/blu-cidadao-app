@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android") // use o plugin oficial do Kotlin
+    id("org.jetbrains.kotlin.android") // Plugin oficial do Kotlin
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -22,7 +22,7 @@ android {
         applicationId = "com.example.blu_cidadao"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
+        versionCode = flutter.versionCode.toInt()
         versionName = flutter.versionName
     }
 
@@ -33,3 +33,6 @@ android {
     }
 }
 
+flutter {
+    //source("../..")
+}
