@@ -76,8 +76,8 @@ class _HomePageState extends State<HomePage> {
         subServices: ['Escolas municipais', 'Calendário escolar'],
       ),
       ServiceItem(
-        title: 'Emprego',
-        icon: Icons.work,
+        title: 'Vagas de Emprego',
+        icon: Image.asset('assets/icons/trabalho.png', width: 32, height: 32),
         color: Colors.orange,
         page: const JobsPage(),
         subServices: ['Vagas de emprego', 'Programas de estágio'],
