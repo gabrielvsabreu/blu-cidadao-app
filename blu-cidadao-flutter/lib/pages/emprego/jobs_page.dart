@@ -1,6 +1,7 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/emprego/job_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'job_service.dart';
 
@@ -96,7 +97,12 @@ class _JobsPageState extends State<JobsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
       child: Scaffold(
         backgroundColor: AppColors.whiteColor,
         body: Column(
@@ -146,7 +152,7 @@ class _JobsPageState extends State<JobsPage> {
                         labelStyle: GoogleFonts.inter(),
                         prefixIcon: const Icon(Icons.search),
                         filled: true,
-                        fillColor: AppColors.iceWhiteColor,
+                        fillColor: AppColors.borderColor.withOpacity(0.3),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
@@ -170,7 +176,9 @@ class _JobsPageState extends State<JobsPage> {
                           ),
                           selected: jobType == 'all',
                           selectedColor: AppColors.blueColor1,
-                          backgroundColor: AppColors.lightGrey,
+                          backgroundColor: AppColors.borderColor.withOpacity(
+                            0.3,
+                          ),
                           onSelected: (_) {
                             setState(() => jobType = 'all');
                             loadJobs();

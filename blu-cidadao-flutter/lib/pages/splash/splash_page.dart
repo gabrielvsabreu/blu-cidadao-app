@@ -1,6 +1,7 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -24,21 +25,28 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: AppColors.blueGradient,
-            stops: [0.0, 0.5, 1.0],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: AppColors.blueGradient,
+              stops: [0.0, 0.5, 1.0],
+            ),
           ),
-        ),
-        child: Center(
-          child: Image.asset(
-            'assets/images/logo1.png',
-            width: 180,
-            height: 180,
+          child: Center(
+            child: Image.asset(
+              'assets/images/logo1.png',
+              width: 180,
+              height: 180,
+            ),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:blu_cidadao/pages/educacao/escolas.dart';
+import 'package:flutter/services.dart';
 
 class EscolaDetalhesPage extends StatelessWidget {
   final Escola escola;
@@ -43,7 +44,12 @@ class EscolaDetalhesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
       child: Scaffold(
         backgroundColor: AppColors.iceWhiteColor,
         body: Column(
@@ -133,6 +139,7 @@ class EscolaDetalhesPage extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

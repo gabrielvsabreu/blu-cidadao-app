@@ -1,6 +1,6 @@
 import 'package:blu_cidadao/pages/educacao/educacao_page.dart';
 import 'package:blu_cidadao/pages/menu/notificacoes_page.dart';
-import 'package:blu_cidadao/pages/menu/Conta/conta_page.dart';
+import 'package:blu_cidadao/pages/menu/conta_page.dart';
 import 'package:blu_cidadao/pages/menu/sobre_page.dart';
 import 'package:blu_cidadao/pages/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,6 @@
 import 'package:blu_cidadao/pages/detran/detran_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:blu_cidadao/common/constants/app_colors.dart';
 
@@ -21,77 +22,84 @@ class VeiculosListaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      body: Column(
-        children: [
-          Container(
-            height: 120,
-            color: AppColors.blueColor1,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.iceWhiteColor,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.iceWhiteColor,
+        body: Column(
+          children: [
+            Container(
+              height: 120,
+              color: AppColors.blueColor1,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.iceWhiteColor,
+                      ),
+                      onPressed: () => Navigator.pop(context),
                     ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    titulo,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      color: AppColors.iceWhiteColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
+                    const SizedBox(width: 8),
+                    Text(
+                      titulo,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        color: AppColors.iceWhiteColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 1,
-                children: servicos.map((servico) {
-                  return Material(
-                    color: AppColors.lightGrey,
-                    borderRadius: BorderRadius.circular(16),
-                    child: InkWell(
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 1,
+                  children: servicos.map((servico) {
+                    return Material(
+                      color: AppColors.lightGrey,
                       borderRadius: BorderRadius.circular(16),
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () => _abrirUrl(servico.url),
-                      child: Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          servico.nome,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.blueColor1,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(16),
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () => _abrirUrl(servico.url),
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.all(8),
+                          child: Text(
+                            servico.nome,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.blueColor1,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                }).toList(),
+                    );
+                  }).toList(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

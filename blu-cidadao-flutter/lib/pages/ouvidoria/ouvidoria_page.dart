@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:blu_cidadao/common/constants/app_colors.dart';
@@ -528,252 +529,259 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      body: Column(
-        children: [
-          Container(
-            height: 120,
-            color: AppColors.blueColor1,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.iceWhiteColor,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const SizedBox(width: 8),
-                  const Text(
-                    'Nova Manifestação',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: AppColors.iceWhiteColor,
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Form(
-                key: _formKey,
-                child: ListView(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.iceWhiteColor,
+        body: Column(
+          children: [
+            Container(
+              height: 120,
+              color: AppColors.blueColor1,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
                   children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.iceWhiteColor,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const SizedBox(width: 8),
                     const Text(
-                      'Tipo:',
+                      'Nova Manifestação',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 16,
-                        color: AppColors.blueColor1,
+                        fontFamily: 'Inter',
+                        color: AppColors.iceWhiteColor,
+                        fontSize: 20,
                       ),
                     ),
-                    DropdownButtonFormField<String>(
-                      initialValue: _tipoSelecionado,
-                      items: tipos.map((tipo) {
-                        return DropdownMenuItem(
-                          value: tipo,
-                          child: Text(formatarTipo(tipo)),
-                        );
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          _tipoSelecionado = value;
-                        });
-                      },
-                      validator: (val) =>
-                          val == null ? 'Campo obrigatório' : null,
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Área:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 14,
-                        color: AppColors.blueColor1,
-                      ),
-                    ),
-                    DropdownButtonFormField<String>(
-                      initialValue: _areaSelecionada,
-                      items: areas.map((area) {
-                        return DropdownMenuItem(
-                          value: area,
-                          child: Text(formatarArea(area)),
-                        );
-                      }).toList(),
-                      onChanged: (val) =>
-                          setState(() => _areaSelecionada = val),
-                      validator: (val) =>
-                          val == null ? 'Campo obrigatório' : null,
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Descrição:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 14,
-                        color: AppColors.blueColor1,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    TextFormField(
-                      controller: _descricaoController,
-                      maxLines: 5,
-                      decoration: const InputDecoration(
-                        hintText: 'Descreva sua solicitação...',
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (val) => val == null || val.isEmpty
-                          ? 'Campo obrigatório'
-                          : null,
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Local:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 14,
-                        color: AppColors.blueColor1,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    TextFormField(
-                      controller: _localController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Email:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 14,
-                        color: AppColors.blueColor1,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    TextFormField(
-                      controller: _emailController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (val) => val == null || val.isEmpty
-                          ? 'Campo obrigatório'
-                          : null,
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Mídia:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Row(
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: selecionarMidia,
-                            icon: const Icon(
-                              Icons.attach_file,
-                              color: AppColors.iceWhiteColor,
-                            ),
-                            label: const Text(
-                              'Escolher mídia',
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontFamily: "Inter",
-                                fontSize: 14,
-                                color: AppColors.iceWhiteColor,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.blueColor1,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              _midiaSelecionada != null
-                                  ? _midiaSelecionada!.path.split('/').last
-                                  : 'Nenhum arquivo',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-                    ElevatedButton(
-                      onPressed: enviarManifestacao,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.blueColor1,
-                      ),
-                      child: const Text(
-                        'Enviar Manifestação',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Inter",
-                          fontSize: 14,
-                          color: AppColors.iceWhiteColor,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    const Divider(),
-                    const SizedBox(height: 24),
-                    const Text(
-                      'Histórico de Manifestações:',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 18,
-                        color: AppColors.blueColor1,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    ..._historico.map(buildHistoricoItem),
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Form(
+                  key: _formKey,
+                  child: ListView(
+                    children: [
+                      const Text(
+                        'Tipo:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 16,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      DropdownButtonFormField<String>(
+                        initialValue: _tipoSelecionado,
+                        items: tipos.map((tipo) {
+                          return DropdownMenuItem(
+                            value: tipo,
+                            child: Text(formatarTipo(tipo)),
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            _tipoSelecionado = value;
+                          });
+                        },
+                        validator: (val) =>
+                            val == null ? 'Campo obrigatório' : null,
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Área:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      DropdownButtonFormField<String>(
+                        initialValue: _areaSelecionada,
+                        items: areas.map((area) {
+                          return DropdownMenuItem(
+                            value: area,
+                            child: Text(formatarArea(area)),
+                          );
+                        }).toList(),
+                        onChanged: (val) =>
+                            setState(() => _areaSelecionada = val),
+                        validator: (val) =>
+                            val == null ? 'Campo obrigatório' : null,
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Descrição:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      TextFormField(
+                        controller: _descricaoController,
+                        maxLines: 5,
+                        decoration: const InputDecoration(
+                          hintText: 'Descreva sua solicitação...',
+                          border: OutlineInputBorder(),
+                        ),
+                        validator: (val) => val == null || val.isEmpty
+                            ? 'Campo obrigatório'
+                            : null,
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Local:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      TextFormField(
+                        controller: _localController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Email:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      TextFormField(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                        validator: (val) => val == null || val.isEmpty
+                            ? 'Campo obrigatório'
+                            : null,
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Mídia:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Row(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: selecionarMidia,
+                              icon: const Icon(
+                                Icons.attach_file,
+                                color: AppColors.iceWhiteColor,
+                              ),
+                              label: const Text(
+                                'Escolher mídia',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: "Inter",
+                                  fontSize: 14,
+                                  color: AppColors.iceWhiteColor,
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.blueColor1,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                _midiaSelecionada != null
+                                    ? _midiaSelecionada!.path.split('/').last
+                                    : 'Nenhum arquivo',
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      ElevatedButton(
+                        onPressed: enviarManifestacao,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.blueColor1,
+                        ),
+                        child: const Text(
+                          'Enviar Manifestação',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Inter",
+                            fontSize: 14,
+                            color: AppColors.iceWhiteColor,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      const Divider(),
+                      const SizedBox(height: 24),
+                      const Text(
+                        'Histórico de Manifestações:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 18,
+                          color: AppColors.blueColor1,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      ..._historico.map(buildHistoricoItem),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

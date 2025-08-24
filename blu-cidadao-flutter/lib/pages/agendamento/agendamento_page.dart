@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blu_cidadao/common/constants/app_colors.dart';
+import 'package:flutter/services.dart';
 
 class AgendamentoPage extends StatefulWidget {
   const AgendamentoPage({super.key});
@@ -87,7 +88,7 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
             'Agendamento realizado com sucesso!',
             style: TextStyle(fontFamily: 'Inter'),
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.blueColor1,
         ),
       );
     }
@@ -95,151 +96,158 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
-      body: Column(
-        children: [
-          Container(
-            height: 120,
-            color: AppColors.blueColor1,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: AppColors.iceWhiteColor,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const SizedBox(width: 8),
-                  const Text(
-                    'Agendar Atendimento',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: AppColors.iceWhiteColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Form(
-                key: _formKey,
-                child: ListView(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // transparente sempre
+        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
+        statusBarBrightness: Brightness.dark, // iOS: texto branco
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        body: Column(
+          children: [
+            Container(
+              height: 120,
+              color: AppColors.blueColor1,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
                   children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.whiteColor,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const SizedBox(width: 8),
                     const Text(
-                      'Selecione o setor desejado:',
+                      'Agendar Atendimento',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    DropdownButtonFormField<String>(
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueColor1),
-                        ),
-                      ),
-                      initialValue: _setorSelecionado,
-                      items: setores.map((setor) {
-                        return DropdownMenuItem<String>(
-                          value: setor,
-                          child: Text(
-                            setor,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (value) =>
-                          setState(() => _setorSelecionado = value),
-                      validator: (value) =>
-                          value == null ? 'Selecione um setor' : null,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton.icon(
-                      onPressed: _selecionarData,
-                      icon: const Icon(
-                        Icons.date_range,
-                        color: AppColors.blueColor1,
-                      ),
-                      label: Text(
-                        _dataSelecionada == null
-                            ? 'Selecionar data'
-                            : 'Data: ${_dataSelecionada!.day}/${_dataSelecionada!.month}/${_dataSelecionada!.year}',
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          color: AppColors.blueColor1,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: const BorderSide(color: AppColors.blueColor1),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    ElevatedButton.icon(
-                      onPressed: _selecionarHorario,
-                      icon: const Icon(
-                        Icons.access_time,
-                        color: AppColors.blueColor1,
-                      ),
-                      label: Text(
-                        _horarioSelecionado == null
-                            ? 'Selecionar horário'
-                            : 'Horário: ${_horarioSelecionado!.format(context)}',
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          color: AppColors.blueColor1,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.whiteColor,
-                        side: const BorderSide(color: AppColors.blueColor1),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    ElevatedButton(
-                      onPressed: _enviarFormulario,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        backgroundColor: AppColors.blueColor1,
-                      ),
-                      child: const Text(
-                        'Confirmar Agendamento',
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 16,
-                          color: AppColors.iceWhiteColor,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        color: AppColors.whiteColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Form(
+                  key: _formKey,
+                  child: ListView(
+                    children: [
+                      const Text(
+                        'Selecione o setor desejado:',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.blueColor1),
+                          ),
+                        ),
+                        initialValue: _setorSelecionado,
+                        items: setores.map((setor) {
+                          return DropdownMenuItem<String>(
+                            value: setor,
+                            child: Text(
+                              setor,
+                              style: const TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (value) =>
+                            setState(() => _setorSelecionado = value),
+                        validator: (value) =>
+                            value == null ? 'Selecione um setor' : null,
+                        style: const TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton.icon(
+                        onPressed: _selecionarData,
+                        icon: const Icon(
+                          Icons.date_range,
+                          color: AppColors.blueColor1,
+                        ),
+                        label: Text(
+                          _dataSelecionada == null
+                              ? 'Selecionar data'
+                              : 'Data: ${_dataSelecionada!.day}/${_dataSelecionada!.month}/${_dataSelecionada!.year}',
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            color: AppColors.blueColor1,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          side: const BorderSide(color: AppColors.blueColor1),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      ElevatedButton.icon(
+                        onPressed: _selecionarHorario,
+                        icon: const Icon(
+                          Icons.access_time,
+                          color: AppColors.blueColor1,
+                        ),
+                        label: Text(
+                          _horarioSelecionado == null
+                              ? 'Selecionar horário'
+                              : 'Horário: ${_horarioSelecionado!.format(context)}',
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            color: AppColors.blueColor1,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.whiteColor,
+                          side: const BorderSide(color: AppColors.blueColor1),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      ElevatedButton(
+                        onPressed: _enviarFormulario,
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          backgroundColor: AppColors.blueColor1,
+                        ),
+                        child: const Text(
+                          'Confirmar Agendamento',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            color: AppColors.whiteColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
