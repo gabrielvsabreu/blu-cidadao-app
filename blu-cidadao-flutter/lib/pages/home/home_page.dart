@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> {
         page: const AgendamentoPage(),
         subServices: ['Agendar atendimento', 'Ver agendamentos'],
       ),
+      
     ];
 
     filteredServices = List.from(allServices);
@@ -203,9 +204,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.dark, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
         backgroundColor: AppColors.whiteColor,
