@@ -25,72 +25,71 @@ class _JobsPageState extends State<JobsPage> {
   }
 
   Future<void> loadJobs() async {
+    if (!mounted) return;
+
     setState(() => isLoading = true);
+
     try {
       final query = _searchController.text.trim();
-
       List<dynamic> allJobs = [];
 
-      if (jobType == 'all') {
-        // Presencial em SC
-        final scJobs = await jobService.fetchJobs(
+      Future<List<dynamic>> fetchAndFilterJobs({
+        required String location,
+        required bool isRemote,
+      }) async {
+        final jobs = await jobService.fetchJobs(
           query: query,
-          location: "Santa Catarina",
+          location: location,
         );
-        final presencial = scJobs.where((job) {
+        return jobs.where((job) {
           final desc = job['description']?.toString().toLowerCase() ?? '';
           final title = job['title']?.toString().toLowerCase() ?? '';
-          return !desc.contains('home office') &&
-              !desc.contains('remoto') &&
-              !title.contains('remoto');
-        }).toList();
-
-        // Home office no Brasil
-        final brJobs = await jobService.fetchJobs(
-          query: query,
-          location: "Brasil",
-        );
-        final homeoffice = brJobs.where((job) {
-          final desc = job['description']?.toString().toLowerCase() ?? '';
-          final title = job['title']?.toString().toLowerCase() ?? '';
-          return desc.contains('home office') ||
+          final containsRemote =
+              desc.contains('home office') ||
               desc.contains('remoto') ||
               title.contains('remoto');
-        }).toList();
-
-        allJobs = [...presencial, ...homeoffice];
-      } else if (jobType == 'presencial') {
-        final scJobs = await jobService.fetchJobs(
-          query: query,
-          location: "Santa Catarina",
-        );
-        allJobs = scJobs.where((job) {
-          final desc = job['description']?.toString().toLowerCase() ?? '';
-          final title = job['title']?.toString().toLowerCase() ?? '';
-          return !desc.contains('home office') &&
-              !desc.contains('remoto') &&
-              !title.contains('remoto');
-        }).toList();
-      } else if (jobType == 'homeoffice') {
-        final brJobs = await jobService.fetchJobs(
-          query: query,
-          location: "Brasil",
-        );
-        allJobs = brJobs.where((job) {
-          final desc = job['description']?.toString().toLowerCase() ?? '';
-          final title = job['title']?.toString().toLowerCase() ?? '';
-          return desc.contains('home office') ||
-              desc.contains('remoto') ||
-              title.contains('remoto');
+          return isRemote ? containsRemote : !containsRemote;
         }).toList();
       }
 
-      setState(() {
-        jobs = allJobs;
-        isLoading = false;
-      });
+      switch (jobType) {
+        case 'all':
+          final presencial = await fetchAndFilterJobs(
+            location: "Santa Catarina",
+            isRemote: false,
+          );
+          final homeoffice = await fetchAndFilterJobs(
+            location: "Brasil",
+            isRemote: true,
+          );
+          allJobs = [...presencial, ...homeoffice];
+          break;
+
+        case 'presencial':
+          allJobs = await fetchAndFilterJobs(
+            location: "Santa Catarina",
+            isRemote: false,
+          );
+          break;
+
+        case 'homeoffice':
+          allJobs = await fetchAndFilterJobs(
+            location: "Brasil",
+            isRemote: true,
+          );
+          break;
+      }
+
+      if (mounted) {
+        setState(() {
+          jobs = allJobs;
+          isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() => isLoading = false);
+      if (mounted) {
+        setState(() => isLoading = false);
+      }
       print('Erro ao buscar empregos: $e');
     }
   }

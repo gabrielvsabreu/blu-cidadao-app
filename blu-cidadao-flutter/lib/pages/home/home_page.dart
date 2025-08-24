@@ -61,21 +61,16 @@ class _HomePageState extends State<HomePage> {
           'Acompanhar solicitações',
         ],
       ),
-      ServiceItem(
-        title: 'Agendamentos',
-        icon: Icons.calendar_month,
-        page: const AgendamentoPage(),
-        subServices: ['Agendar atendimento', 'Ver agendamentos'],
-      ),
+
       ServiceItem(
         title: 'Educação',
-        icon: Image.asset('assets/icons/educacao.png', width: 32, height: 32),
+        icon: Image.asset('assets/icons/education.png', width: 32, height: 32),
         page: const EducacaoPage(),
         subServices: ['Escolas municipais', 'Calendário escolar'],
       ),
       ServiceItem(
         title: 'Vagas de Emprego',
-        icon: Image.asset('assets/icons/trabalho.png', width: 32, height: 32),
+        icon: Image.asset('assets/icons/job.png', width: 32, height: 32),
         page: const JobsPage(),
         subServices: ['Vagas de emprego', 'Programas de estágio'],
       ),
@@ -91,13 +86,13 @@ class _HomePageState extends State<HomePage> {
       ),
       ServiceItem(
         title: 'Documentos',
-        icon: Icons.description,
+        icon: Image.asset('assets/icons/documentos.png', width: 32, height: 32),
         page: const DocumentosHomePage(),
         subServices: ['Emitir documentos', 'Agendar emissão', 'Tirar dúvidas'],
       ),
       ServiceItem(
         title: 'Saúde',
-        icon: Icons.local_hospital,
+        icon: Image.asset('assets/icons/saude.png', width: 32, height: 32),
         page: const SaudePage(),
         subServices: ['Pronto atendimento', 'Consultas médicas'],
       ),
@@ -108,16 +103,22 @@ class _HomePageState extends State<HomePage> {
         subServices: ['Água e Esgoto', 'Energia elétrica'],
       ),
       ServiceItem(
+        title: 'Emergência',
+        icon: Image.asset('assets/icons/emergencia.png', width: 32, height: 32),
+        page: const EmergenciaPage(),
+        subServices: ['Polícia', 'Bombeiros', 'SAMU'],
+      ),
+      ServiceItem(
         title: 'Notícias',
-        icon: Icons.article,
+        icon: Image.asset('assets/icons/news.png', height: 32),
         page: const NoticiasPage(),
         subServices: ['Últimas notícias', 'Notícias locais'],
       ),
       ServiceItem(
-        title: 'Emergência',
-        icon: Icons.warning_amber_rounded,
-        page: const EmergenciaPage(),
-        subServices: ['Polícia', 'Bombeiros', 'SAMU'],
+        title: 'Agendamentos',
+        icon: Image.asset('assets/icons/agendamento.png', height: 32),
+        page: const AgendamentoPage(),
+        subServices: ['Agendar atendimento', 'Ver agendamentos'],
       ),
     ];
 
