@@ -95,8 +95,7 @@ flutter:
     - assets/icons/educacao.png
     - assets/icons/ouvidoria.png
     - assets/icons/trabalho.png
-    - assets/pdf/requerimento_tre.pdf
-    - assets/pdf/titulo_tre.pdf
+    - assets/icons/samae-celesc-logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

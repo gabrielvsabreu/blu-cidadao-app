@@ -3,7 +3,7 @@ import 'documentos_model.dart';
 class DocumentosServiceData {
   static List<DocumentoModel> getCPF() => [
     DocumentoModel(
-      nome: 'Cadastramento on-line',
+      nome: 'Cadastramento \n on-line',
 
       url:
           'https://servicos.receita.fazenda.gov.br/servicos/cpf/inscricaopublica/inscricao.asp',
