@@ -206,7 +206,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     DropdownButtonFormField<String>(
-                      value: tipoSelecionado,
+                      initialValue: tipoSelecionado,
                       items: tipos
                           .map(
                             (t) => DropdownMenuItem(
@@ -222,7 +222,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                           setModalState(() => tipoSelecionado = val),
                     ),
                     DropdownButtonFormField<String>(
-                      value: areaSelecionada,
+                      initialValue: areaSelecionada,
                       items: areas
                           .map(
                             (a) => DropdownMenuItem(
@@ -577,7 +577,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       ),
                     ),
                     DropdownButtonFormField<String>(
-                      value: _tipoSelecionado,
+                      initialValue: _tipoSelecionado,
                       items: tipos.map((tipo) {
                         return DropdownMenuItem(
                           value: tipo,
@@ -612,7 +612,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       ),
                     ),
                     DropdownButtonFormField<String>(
-                      value: _areaSelecionada,
+                      initialValue: _areaSelecionada,
                       items: areas.map((area) {
                         return DropdownMenuItem(
                           value: area,
@@ -767,7 +767,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    ..._historico.map(buildHistoricoItem).toList(),
+                    ..._historico.map(buildHistoricoItem),
                   ],
                 ),
               ),

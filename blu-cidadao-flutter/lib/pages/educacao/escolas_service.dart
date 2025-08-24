@@ -8,8 +8,7 @@ class EscolaService {
     String? categoria,
   }) async {
     final uri = Uri.parse(
-      'https://api-escolas-production.up.railway.app/escolas' +
-          '?dependencia=${dependencia ?? ''}&categoria=${categoria ?? ''}',
+      'https://api-escolas-production.up.railway.app/escolas' '?dependencia=${dependencia ?? ''}&categoria=${categoria ?? ''}',
     );
     final response = await http.get(uri);
     if (response.statusCode == 200) {

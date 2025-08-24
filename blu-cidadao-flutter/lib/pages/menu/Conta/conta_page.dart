@@ -192,7 +192,7 @@ class _ContaPageState extends State<ContaPage> {
                   // Dados do usuário (não editáveis)
                   ...dadosUsuario.entries
                       .map((e) => _buildInfoItem(e.key, e.value))
-                      .toList(),
+                      ,
 
                   const SizedBox(height: 32),
 

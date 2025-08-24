@@ -94,7 +94,7 @@ class _EscolasPageState extends State<EscolasPage> {
     Function(String?) onChanged,
   ) {
     return DropdownButtonFormField<String>(
-      value: value,
+      initialValue: value,
       decoration: InputDecoration(labelText: label),
       items: items
           .map((item) => DropdownMenuItem(value: item, child: Text(item)))

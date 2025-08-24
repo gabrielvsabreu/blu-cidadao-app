@@ -151,7 +151,7 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
                           borderSide: BorderSide(color: AppColors.blueColor1),
                         ),
                       ),
-                      value: _setorSelecionado,
+                      initialValue: _setorSelecionado,
                       items: setores.map((setor) {
                         return DropdownMenuItem<String>(
                           value: setor,
