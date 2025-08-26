@@ -8,10 +8,12 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/constants/app_colors.dart';
+import '../agendamento/agendamento_page.dart';
 import '../documentos/documentos_home_page.dart';
 import '../emergencia/emergencia_page.dart';
 import '../emprego/jobs_page.dart';
 import '../infraestrutura/infra_page.dart';
+import '../noticias/noticias_page.dart';
 import '../ouvidoria/ouvidoria_page.dart';
 import '../saude/saude_page.dart';
 import '../detran/detran_home_page.dart';
@@ -59,9 +61,10 @@ class _HomePageState extends State<HomePage> {
           'Acompanhar solicitações',
         ],
       ),
+
       ServiceItem(
         title: 'Educação',
-        icon: Image.asset('assets/icons/education.png', height: 32),
+        icon: Image.asset('assets/icons/education.png', width: 32, height: 32),
         page: const EducacaoPage(),
         subServices: ['Escolas municipais', 'Calendário escolar'],
       ),
@@ -75,44 +78,47 @@ class _HomePageState extends State<HomePage> {
         title: 'DETRAN-SC',
         icon: Image.asset(
           'assets/icons/logo-detran.png',
-          width: 30,
-          height: 30,
-          color: AppColors.blueColor1,
+          width: 32,
+          height: 32,
         ),
         page: const VeiculosHomePage(),
         subServices: ['Habilitação', 'Veículos', 'Infrações'],
       ),
       ServiceItem(
         title: 'Documentos',
-        icon: Image.asset('assets/icons/document.png', height: 30),
+        icon: Image.asset('assets/icons/documentos.png', width: 32, height: 32),
         page: const DocumentosHomePage(),
         subServices: ['Emitir documentos', 'Agendar emissão', 'Tirar dúvidas'],
       ),
       ServiceItem(
         title: 'Saúde',
-        icon: Image.asset('assets/icons/saude.png', height: 32),
+        icon: Image.asset('assets/icons/saude.png', width: 32, height: 32),
         page: const SaudePage(),
         subServices: ['Pronto atendimento', 'Consultas médicas'],
       ),
       ServiceItem(
-        title: 'Água, Esgoto e Energia',
-        icon: Image.asset(
-          'assets/icons/samae-celesc-logo.png',
-          height: 32,
-          color: AppColors.blueColor1,
-        ),
+        title: 'Água, Esgoto e Energia (SAMAE e CELESC)',
+        icon: Image.asset('assets/icons/samae-celesc-logo.png', height: 32),
         page: const InfraestruturaPage(),
         subServices: ['Água e Esgoto', 'Energia elétrica'],
       ),
       ServiceItem(
         title: 'Emergência',
-        icon: Image.asset(
-          'assets/icons/emergencia.png',
-          height: 32,
-          color: AppColors.blueColor1,
-        ),
+        icon: Image.asset('assets/icons/emergencia.png', width: 32, height: 32),
         page: const EmergenciaPage(),
         subServices: ['Polícia', 'Bombeiros', 'SAMU'],
+      ),
+      ServiceItem(
+        title: 'Notícias',
+        icon: Image.asset('assets/icons/news.png', height: 32),
+        page: const NoticiasPage(),
+        subServices: ['Últimas notícias', 'Notícias locais'],
+      ),
+      ServiceItem(
+        title: 'Agendamentos',
+        icon: Image.asset('assets/icons/agendamento.png', height: 32),
+        page: const AgendamentoPage(),
+        subServices: ['Agendar atendimento', 'Ver agendamentos'],
       ),
     ];
 
@@ -198,8 +204,8 @@ class _HomePageState extends State<HomePage> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
         backgroundColor: AppColors.whiteColor,
@@ -277,137 +283,143 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-
-        // 🔹 Cabeçalho fixo + lista rolável
-        body: Column(
-          children: [
-            // Cabeçalho azul fixo
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(16, 50, 16, 30),
-              decoration: const BoxDecoration(
-                color: AppColors.blueColor1,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Top bar
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        'assets/images/logo2.png',
-                        height: 32,
-                        color: Colors.white,
-                      ),
-                      Builder(
-                        builder: (context) => IconButton(
-                          icon: const Icon(Icons.menu, color: Colors.white),
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 25),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage('assets/images/avatar.png'),
-                      ),
-                      const SizedBox(width: 14),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Bem-vindo(a), $nomeUsuario!',
-                            style: GoogleFonts.inter(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            'Como podemos te ajudar hoje?',
-                            style: GoogleFonts.inter(
-                              fontSize: 13,
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Builder(
-                        builder: (context) => IconButton(
-                          icon: const Icon(
-                            Icons.notifications,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const NotificacoesPage(),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 25),
-                  // 🔹 Campo de busca dentro da caixa azul
-                  TextField(
-                    onChanged: updateSearch,
-                    style: GoogleFonts.inter(color: AppColors.whiteColor),
-                    decoration: InputDecoration(
-                      hintText: 'Digite o serviço que deseja...',
-                      hintStyle: GoogleFonts.inter(color: Colors.white70),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                        color: AppColors.whiteColor,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.15),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 16),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Lista rolável de serviços
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Top bar
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GridView.count(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      childAspectRatio: 1.2,
-                      children: filteredServices
-                          .map((s) => serviceBox(s))
-                          .toList(),
+                    Image.asset('assets/images/logo2.png', height: 30),
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: const Icon(
+                          Icons.menu,
+                          color: AppColors.blueColor1,
+                        ),
+                        onPressed: () => Scaffold.of(context).openDrawer(),
+                      ),
                     ),
                   ],
                 ),
-              ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 28,
+                      backgroundImage: AssetImage('assets/images/avatar.png'),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bem-vindo(a), $nomeUsuario!',
+                          style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Como podemos te ajudar hoje?',
+                          style: GoogleFonts.inter(
+                            fontSize: 13,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: const Icon(
+                          Icons.notifications,
+                          color: AppColors.blueColor1,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NotificacoesPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColors.blueColor1,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Buscar serviço',
+                        style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      TextField(
+                        onChanged: updateSearch,
+                        style: GoogleFonts.inter(color: AppColors.whiteColor),
+                        decoration: InputDecoration(
+                          hintText: 'Digite o serviço que deseja...',
+                          hintStyle: GoogleFonts.inter(color: Colors.white70),
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: AppColors.whiteColor,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.15),
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 14,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  'Serviços disponíveis',
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.blueColor1,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 1.2,
+                    children: filteredServices
+                        .map((s) => serviceBox(s))
+                        .toList(),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

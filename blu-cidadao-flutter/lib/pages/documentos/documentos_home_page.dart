@@ -17,7 +17,7 @@ class DocumentosHomePage extends StatelessWidget {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: AppColors.whiteColor,
         body: Column(
           children: [
             Container(
@@ -31,7 +31,7 @@ class DocumentosHomePage extends StatelessWidget {
                     IconButton(
                       icon: const Icon(
                         Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
+                        color: AppColors.whiteColor,
                       ),
                       onPressed: () => Navigator.pop(context),
                     ),
@@ -40,7 +40,7 @@ class DocumentosHomePage extends StatelessWidget {
                       'Documentos',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: AppColors.whiteColor,
                         fontSize: 20,
                       ),
                     ),
@@ -134,7 +134,7 @@ class DocumentosHomePage extends StatelessWidget {
         height: 120,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: BoxDecoration(
-          color: AppColors.lightGrey,
+          color: AppColors.borderColor.withOpacity(0.3),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(

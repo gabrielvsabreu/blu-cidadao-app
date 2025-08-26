@@ -33,9 +33,9 @@ class DocumentosListaPage extends StatelessWidget {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
         backgroundColor: AppColors.iceWhiteColor,
@@ -83,7 +83,7 @@ class DocumentosListaPage extends StatelessWidget {
                         consultaItem.nome.isNotEmpty)
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.lightGrey,
+                          color: AppColors.borderColor.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -114,6 +114,7 @@ class DocumentosListaPage extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
+                                minimumSize: const Size(double.infinity, 48),
                               ),
                             ),
                           ],
@@ -127,7 +128,7 @@ class DocumentosListaPage extends StatelessWidget {
                     if (titulo == 'Título de Eleitor')
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.lightGrey,
+                          color: AppColors.borderColor.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -171,6 +172,7 @@ class DocumentosListaPage extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
+                                minimumSize: const Size(double.infinity, 48),
                               ),
                             ),
                           ],
@@ -184,7 +186,7 @@ class DocumentosListaPage extends StatelessWidget {
                     if (titulo == 'Título de Eleitor')
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.lightGrey,
+                          color: AppColors.borderColor.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -228,6 +230,7 @@ class DocumentosListaPage extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
+                                minimumSize: const Size(double.infinity, 48),
                               ),
                             ),
                           ],
@@ -247,7 +250,7 @@ class DocumentosListaPage extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       children: outrosDocumentos.map((documento) {
                         return Material(
-                          color: AppColors.lightGrey,
+                          color: AppColors.borderColor.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(16),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(16),
@@ -257,15 +260,27 @@ class DocumentosListaPage extends StatelessWidget {
                             child: Container(
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(8),
-                              child: Text(
-                                documento.nome,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.blueColor1,
-                                ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons
+                                        .open_in_new, // 🔹 Ícone de link externo
+                                    size: 40,
+                                    color: AppColors.blueColor1,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    documento.nome,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.blueColor1,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

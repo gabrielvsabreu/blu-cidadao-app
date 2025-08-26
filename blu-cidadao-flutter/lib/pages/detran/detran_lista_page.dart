@@ -29,7 +29,7 @@ class VeiculosListaPage extends StatelessWidget {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: AppColors.whiteColor,
         body: Column(
           children: [
             Container(
@@ -43,7 +43,7 @@ class VeiculosListaPage extends StatelessWidget {
                     IconButton(
                       icon: const Icon(
                         Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
+                        color: AppColors.whiteColor,
                       ),
                       onPressed: () => Navigator.pop(context),
                     ),
@@ -52,7 +52,7 @@ class VeiculosListaPage extends StatelessWidget {
                       titulo,
                       style: const TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: AppColors.whiteColor,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -81,15 +81,26 @@ class VeiculosListaPage extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           padding: const EdgeInsets.all(8),
-                          child: Text(
-                            servico.nome,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.blueColor1,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.open_in_new,
+                                size: 40,
+                                color: AppColors.blueColor1,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                servico.nome,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.blueColor1,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
