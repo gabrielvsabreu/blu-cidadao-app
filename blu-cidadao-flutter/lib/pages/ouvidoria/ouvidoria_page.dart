@@ -119,13 +119,21 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
       print('Resposta: ${response.statusCode} - ${response.data}');
 
       if (response.statusCode == 200) {
-        setState(() {
-          _historico.insert(0, response.data);
-        });
+        // Limpa formulário
         _formKey.currentState!.reset();
         _descricaoController.clear();
         _localController.clear();
         _midiaSelecionada = null;
+        _tipoSelecionado = null;
+        _areaSelecionada = null;
+
+        // Exibe aviso visual de sucesso
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Manifestação enviada com sucesso!')),
+        );
+
+        // Recarrega histórico para mostrar nova manifestação
+        await carregarHistorico();
       }
     } catch (e) {
       print('Erro ao enviar manifestação: $e');
@@ -139,17 +147,24 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
     final confirmacao = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: AppColors.whiteColor,
         title: const Text("Confirmar Exclusão"),
         content: const Text("Deseja realmente excluir esta manifestação?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text("Cancelar"),
+            child: const Text(
+              "Cancelar",
+              style: TextStyle(color: AppColors.blueColor1),
+            ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text("Excluir"),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red[900]),
+            child: const Text(
+              "Excluir",
+              style: TextStyle(color: AppColors.whiteColor),
+            ),
           ),
         ],
       ),
@@ -158,17 +173,19 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
     if (confirmacao != true) return;
 
     try {
-      final response = await Dio().delete(
+      await Dio().delete(
         'https://api-ouvidoria-blucidadao-production.up.railway.app/api/manifestacoes/$id',
       );
-      if (response.statusCode == 200) {
-        setState(() {
-          _historico.removeWhere((item) => item['id'] == id);
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Manifestação excluída com sucesso!")),
-        );
-      }
+
+      // Atualiza o estado da página principal
+      setState(() {
+        _historico.removeWhere((m) => m['id'] == id);
+      });
+
+      // Mostra o SnackBar depois do setState
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Manifestação excluída com sucesso!")),
+      );
     } catch (e) {
       ScaffoldMessenger.of(
         context,
@@ -191,7 +208,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
         return StatefulBuilder(
           builder: (context, setModalState) {
             return AlertDialog(
-              backgroundColor: AppColors.iceWhiteColor, // fundo cinza claro
+              backgroundColor: AppColors.iceWhiteColor,
               title: const Text(
                 "Editar Manifestação",
                 style: TextStyle(
@@ -241,7 +258,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                     const SizedBox(height: 12),
                     TextField(
                       controller: descricaoController,
-                      maxLines: 5, // maior verticalmente
+                      maxLines: 5,
                       decoration: const InputDecoration(
                         labelText: "Descrição",
                         labelStyle: TextStyle(fontFamily: "Inter"),
@@ -257,7 +274,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                         border: OutlineInputBorder(),
                       ),
                     ),
-                    const SizedBox(height: 16), // espaçamento antes do botão
+                    const SizedBox(height: 16),
                     ElevatedButton.icon(
                       icon: const Icon(
                         Icons.attach_file,
@@ -273,7 +290,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.blueColor1, // azul escuro
+                        backgroundColor: AppColors.blueColor1,
                       ),
                       onPressed: () async {
                         final picker = ImagePicker();
@@ -414,7 +431,6 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                 color: AppColors.blueColor1,
               ),
             ),
-
             Text(
               'Área: ${formatarArea(manifestacao['area'])}',
               style: TextStyle(
@@ -531,9 +547,9 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
         backgroundColor: AppColors.iceWhiteColor,
@@ -607,7 +623,6 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 20),
                       const Text(
                         'Área:',
