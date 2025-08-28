@@ -25,6 +25,7 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/telaincial.jpg" alt="Tela Inicial" width="250"/>
   <img src="./screenshots/ouvidoria.jpg" alt="Ouidoria" width="250"/>
 </p>
+
 <br>
 <p align="center">
   <b>Educação</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -37,6 +38,7 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/escolas.jpg" alt="Escolas" width="250"/>
   <img src="./screenshots/eja.jpg" alt="Escolas com EJA" width="250"/>
 </p>
+
 <br>
 <p align="center">
   <b>Emprego</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,6 +51,7 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/detran.jpg" alt="DETRAN-SC" width="250"/>
   <img src="./screenshots/saude.jpg" alt="Saúde" width="250"/>
 </p>
+
 <br>
 <p align="center">
   <b>Documentos</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -61,6 +64,7 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/cpf.jpg" alt="CPF" width="250"/>
   <img src="./screenshots/titulo de eleitor.jpg" alt="Titulo de Eleitor" width="250"/>
 </p>
+
 <br>
 <p align="center">
   <b>Saúde</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -73,11 +77,12 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/agua.jpg" alt="Água, Esgotoo e Energia" width="250"/>
   <img src="./screenshots/emergencia.jpg" alt="Emergência" width="250"/>
 </p>
+
 <br>
 <p align="center">
   <b>Menu</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <b>Perfil</b>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <b>Sobre o BluCidadão</b>
 </p>
 <p align="center">
