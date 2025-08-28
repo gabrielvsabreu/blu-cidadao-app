@@ -61,6 +61,18 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/cpf.jpg" alt="CPF" width="250"/>
   <img src="./screenshots/titulo de eleitor.jpg" alt="Titulo de Eleitor" width="250"/>
 </p>
+<br>
+<p align="center">
+  <b>Saúde</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Água, Esgotoo e Energia</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <b>Emergência</b>
+</p>
+<p align="center">
+  <img src="./screenshots/saude.jpg" alt="Saúde" width="250"/> 
+  <img src="./screenshots/agua.jpg" alt="Água, Esgotoo e Energia" width="250"/>
+  <img src="./screenshots/emergencia.jpg" alt="Emergência" width="250"/>
+</p>
 
 ## 🛠️ Tecnologias Utilizadas
 
