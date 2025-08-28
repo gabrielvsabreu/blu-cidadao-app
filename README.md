@@ -1,4 +1,4 @@
-# <p align="center">
+<p align="center">
   <img src="./screenshots/blucidadao.png" alt="BluCidadão" width="300"/>
 </p>
 
