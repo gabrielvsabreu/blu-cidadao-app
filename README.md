@@ -113,5 +113,5 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
 
 ## 👨‍💻 Autores
 <p align="center">
-  <img src="./screenshots/rodape.jpg" alt="Rodape"/>
+  <img src="./screenshots/rodape.png" alt="Rodape"/>
 </p>
