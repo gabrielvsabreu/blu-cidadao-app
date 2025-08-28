@@ -5,8 +5,11 @@ O BluCidadão é um aplicativo inovador que centraliza os principais serviços p
 ## 🚀 Funcionalidades
   
   ✔️ Interface intuitiva: acesso rápido a serviços essenciais
+  
   ✔️ Serviços integrados: saúde, educação, emprego, documentos, utilidades e mais
+  
   ✔️ Ouvidoria digital: registro, acompanhamento e transparência em tempo real
+  
   ✔️ Mobilidade e praticidade: disponível a qualquer hora, em um único app
 
 ## 🖼️ Screenshots
