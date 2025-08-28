@@ -71,6 +71,8 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
     
   - 💬 Chat em tempo real para suporte ao cidadão
 
+
+
 <p align="center">
   <img src="./screenshots/rodape.png" alt="Rodape"/>
 </p>
