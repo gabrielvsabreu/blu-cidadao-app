@@ -112,8 +112,6 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
 
 
 ## 👨‍💻 Autores
-Desenvolvido por Beatriz Conrat, Gabriel Abreu, Gabrielli Danker e Lucas Iepsen
-
 <p align="center">
-  <img src="./screenshots/onecode.png" alt="QRCode" width="250"/> 
+  <img src="./screenshots/rodape.jpg" alt="Rodape"/>
 </p>
