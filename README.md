@@ -25,6 +25,18 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/telaincial.jpg" alt="Tela Inicial" width="250"/>
   <img src="./screenshots/ouvidoria.jpg" alt="Ouidoria" width="250"/>
 </p>
+<br>
+<p align="center">
+  <b>Educação</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <b>Escolas</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <b>Escolas com EJA</b>
+</p>
+<p align="center">
+  <img src="./screenshots/educacao.jpg" alt="Educação" width="250"/> 
+  <img src="./screenshots/escolas.jpg" alt="Escolas" width="250"/>
+  <img src="./screenshots/eja.jpg" alt="Escolas com EJA" width="250"/>
+</p>
 
 ## 🛠️ Tecnologias Utilizadas
 
