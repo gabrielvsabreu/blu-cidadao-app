@@ -15,14 +15,8 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
 ## 🖼️ Screenshots
 
 <p align="center">
-  <figure>
-    <figcaption align="center">Login</figcaption>
     <img src="./screenshots/login.jpg" alt="Login" width="250"/>
-  </figure>
-  <figure>
     <img src="./screenshots/telaincial.jpg" alt="Tela Inicial" width="250"/>
-    <figcaption align="center">Tela Inicial</figcaption>
-  </figure>
 </p>
 
 ## 🛠️ Tecnologias Utilizadas
