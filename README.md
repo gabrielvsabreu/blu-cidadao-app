@@ -37,6 +37,30 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/escolas.jpg" alt="Escolas" width="250"/>
   <img src="./screenshots/eja.jpg" alt="Escolas com EJA" width="250"/>
 </p>
+<br>
+<p align="center">
+  <b>Emprego</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <b>DETRAN-SC</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <b>Saúde</b>
+</p>
+<p align="center">
+  <img src="./screenshots/emprego.jpg" alt="Empregos" width="250"/> 
+  <img src="./screenshots/detran.jpg" alt="DETRAN-SC" width="250"/>
+  <img src="./screenshots/saude.jpg" alt="Saúde" width="250"/>
+</p>
+<br>
+<p align="center">
+  <b>Documentos</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <b>CPF</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <b>Título de Eleitor</b>
+</p>
+<p align="center">
+  <img src="./screenshots/documentos.jpg" alt="Documentos" width="250"/> 
+  <img src="./screenshots/cpf.jpg" alt="CPF" width="250"/>
+  <img src="./screenshots/titulo de eleitor.jpg" alt="Titulo de Eleitor" width="250"/>
+</p>
 
 ## 🛠️ Tecnologias Utilizadas
 
