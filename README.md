@@ -115,5 +115,6 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
 Desenvolvido por Beatriz Conrat, Gabriel Abreu, Gabrielli Danker e Lucas Iepsen
 
 Equipe OneCode
-
-<img src="./screenshots/onecode.png" alt="QRCode" width="250"/> 
+<p align="center">
+  <img src="./screenshots/onecode.png" alt="QRCode" width="250"/> 
+</p>
