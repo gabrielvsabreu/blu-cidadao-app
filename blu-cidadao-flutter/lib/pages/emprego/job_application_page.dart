@@ -2,8 +2,8 @@ import 'package:blu_cidadao/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class NotificacoesPage extends StatelessWidget {
-  const NotificacoesPage({super.key});
+class JobApplicationPage extends StatelessWidget {
+  const JobApplicationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class NotificacoesPage extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     const Text(
-                      'Notificações',
+                      'Candidatar',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         color: Colors.white,
@@ -46,7 +46,7 @@ class NotificacoesPage extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  'Não há notificações',
+                  'Página em construção',
                   style: TextStyle(
                     fontFamily: 'Inter',
                     color: AppColors.blueColor1,

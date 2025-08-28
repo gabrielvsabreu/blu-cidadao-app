@@ -24,7 +24,7 @@ class _ContaPageState extends State<ContaPage> {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         title: const Text(
           "Alteração de Dados",
           style: TextStyle(
@@ -76,7 +76,7 @@ class _ContaPageState extends State<ContaPage> {
                 fontWeight: FontWeight.bold,
                 fontFamily: "Inter",
                 fontSize: 14,
-                color: AppColors.iceWhiteColor,
+                color: Colors.white,
               ),
             ),
           ),
@@ -108,12 +108,12 @@ class _ContaPageState extends State<ContaPage> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             // Cabeçalho
@@ -126,10 +126,7 @@ class _ContaPageState extends State<ContaPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -137,7 +134,7 @@ class _ContaPageState extends State<ContaPage> {
                       'Conta',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
@@ -218,7 +215,7 @@ class _ContaPageState extends State<ContaPage> {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Inter",
                           fontSize: 14,
-                          color: AppColors.iceWhiteColor,
+                          color: Colors.white,
                         ),
                       ),
                     ),

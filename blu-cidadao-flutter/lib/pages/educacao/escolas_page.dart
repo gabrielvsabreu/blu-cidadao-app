@@ -95,7 +95,7 @@ class _EscolasPageState extends State<EscolasPage> {
     Function(String?) onChanged,
   ) {
     return DropdownButtonFormField<String>(
-      initialValue: value,
+      value: value,
       decoration: InputDecoration(labelText: label),
       items: items
           .map((item) => DropdownMenuItem(value: item, child: Text(item)))
@@ -111,11 +111,12 @@ class _EscolasPageState extends State<EscolasPage> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -127,10 +128,7 @@ class _EscolasPageState extends State<EscolasPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -138,7 +136,7 @@ class _EscolasPageState extends State<EscolasPage> {
                       'Escolas',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -147,24 +145,7 @@ class _EscolasPageState extends State<EscolasPage> {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 12.0,
-              ),
-              padding: const EdgeInsets.all(12.0),
-              decoration: BoxDecoration(
-                color: AppColors.borderColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: const Text(
-                'Encontre escolas da Educação Básica em Blumenau. Use o filtro para escolher onde matricular seu filho.',
-                style: TextStyle(fontSize: 16, color: AppColors.blueColor1),
-                textAlign: TextAlign.center,
-              ),
-            ),
-
-            // 🔍 Campo de busca acima da caixa de seleção
+            const SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
@@ -182,7 +163,6 @@ class _EscolasPageState extends State<EscolasPage> {
               ),
             ),
             const SizedBox(height: 12),
-
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -215,6 +195,7 @@ class _EscolasPageState extends State<EscolasPage> {
                           itemBuilder: (context, index) {
                             final escola = escolasFiltradas[index];
                             return Card(
+                              color: AppColors.lightGrey,
                               margin: const EdgeInsets.symmetric(vertical: 6),
                               elevation: 2,
                               child: ListTile(
@@ -227,8 +208,10 @@ class _EscolasPageState extends State<EscolasPage> {
                                     ),
                                   );
                                 },
-                                leading: const Icon(Icons.school),
-                                iconColor: AppColors.blueColor1,
+                                leading: const Icon(
+                                  Icons.school,
+                                  color: AppColors.blueColor1,
+                                ),
                                 title: Text(
                                   escola.nome,
                                   style: const TextStyle(
@@ -236,7 +219,10 @@ class _EscolasPageState extends State<EscolasPage> {
                                     color: AppColors.blueColor1,
                                   ),
                                 ),
-                                subtitle: Text(escola.categoria),
+                                subtitle: Text(
+                                  escola.categoria,
+                                  style: const TextStyle(color: Colors.black87),
+                                ),
                               ),
                             );
                           },

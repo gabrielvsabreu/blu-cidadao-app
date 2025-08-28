@@ -1,4 +1,5 @@
 import 'package:blu_cidadao/common/constants/app_colors.dart';
+import 'package:blu_cidadao/pages/emprego/job_application_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,12 +20,12 @@ class JobDetailPage extends StatelessWidget {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // transparente sempre
-        statusBarIconBrightness: Brightness.light, // Android: ícones brancos
-        statusBarBrightness: Brightness.dark, // iOS: texto branco
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             // Cabeçalho
@@ -37,18 +38,15 @@ class JobDetailPage extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.whiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
-                    Text(
+                    const Text(
                       "Detalhes da vaga",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -98,6 +96,43 @@ class JobDetailPage extends StatelessWidget {
             ),
           ],
         ),
+
+        // Botão de candidatar-se fixo no rodapé
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.blueColor1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () {
+                  // Aqui você pode navegar para a página de candidatura
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const JobApplicationPage(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Candidatar-se",
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -106,7 +141,7 @@ class JobDetailPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.borderColor.withOpacity(0.3),
+        color: AppColors.lightGrey,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(

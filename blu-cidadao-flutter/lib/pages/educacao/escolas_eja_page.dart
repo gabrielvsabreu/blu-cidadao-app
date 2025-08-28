@@ -83,10 +83,7 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -94,7 +91,7 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                       'Escolas com EJA',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -103,22 +100,7 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 12.0,
-              ),
-              padding: const EdgeInsets.all(12.0),
-              decoration: BoxDecoration(
-                color: AppColors.borderColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: const Text(
-                'Veja as escolas que oferecem Educação de Jovens e Adultos (EJA) em Blumenau.',
-                style: TextStyle(fontSize: 16, color: AppColors.blueColor1),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            const SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
@@ -152,6 +134,7 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                         itemBuilder: (context, index) {
                           final escola = escolasFiltradas[index];
                           return Card(
+                            color: AppColors.lightGrey,
                             margin: const EdgeInsets.symmetric(vertical: 6),
                             elevation: 2,
                             child: ListTile(
@@ -164,8 +147,10 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                                   ),
                                 );
                               },
-                              leading: const Icon(Icons.school),
-                              iconColor: AppColors.blueColor1,
+                              leading: const Icon(
+                                Icons.school,
+                                color: AppColors.blueColor1,
+                              ),
                               title: Text(
                                 escola.nome,
                                 style: const TextStyle(
@@ -173,7 +158,10 @@ class _EscolasEjaPageState extends State<EscolasEjaPage> {
                                   color: AppColors.blueColor1,
                                 ),
                               ),
-                              subtitle: Text(escola.categoria),
+                              subtitle: Text(
+                                escola.categoria,
+                                style: const TextStyle(color: Colors.black87),
+                              ),
                             ),
                           );
                         },

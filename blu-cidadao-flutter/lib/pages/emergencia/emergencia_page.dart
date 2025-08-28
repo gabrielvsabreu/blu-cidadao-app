@@ -34,7 +34,7 @@ class _EmergenciaPageState extends State<EmergenciaPage> {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             // Barra superior customizada
@@ -47,10 +47,7 @@ class _EmergenciaPageState extends State<EmergenciaPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -58,7 +55,7 @@ class _EmergenciaPageState extends State<EmergenciaPage> {
                       'Emergência',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -76,7 +73,7 @@ class _EmergenciaPageState extends State<EmergenciaPage> {
               child: const Text(
                 "⚠️ Use o chatbot abaixo para pedir ajuda...",
                 style: TextStyle(
-                  color: AppColors.textColor,
+                  color: Colors.black87,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
@@ -106,9 +103,7 @@ class _EmergenciaPageState extends State<EmergenciaPage> {
                       child: Text(
                         msg.texto,
                         style: TextStyle(
-                          color: msg.ehUsuario
-                              ? AppColors.textColor
-                              : AppColors.iceWhiteColor,
+                          color: msg.ehUsuario ? Colors.black87 : Colors.white,
                           fontFamily: 'Inter',
                           fontSize: 14,
                         ),

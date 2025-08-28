@@ -147,7 +147,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
     final confirmacao = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: Colors.white,
         title: const Text("Confirmar Exclusão"),
         content: const Text("Deseja realmente excluir esta manifestação?"),
         actions: [
@@ -161,10 +161,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red[900]),
-            child: const Text(
-              "Excluir",
-              style: TextStyle(color: AppColors.whiteColor),
-            ),
+            child: const Text("Excluir", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -208,7 +205,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
         return StatefulBuilder(
           builder: (context, setModalState) {
             return AlertDialog(
-              backgroundColor: AppColors.iceWhiteColor,
+              backgroundColor: Colors.white,
               title: const Text(
                 "Editar Manifestação",
                 style: TextStyle(
@@ -276,17 +273,14 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton.icon(
-                      icon: const Icon(
-                        Icons.attach_file,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.attach_file, color: Colors.white),
                       label: const Text(
                         "Selecionar Nova Mídia",
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontFamily: "Inter",
                           fontSize: 14,
-                          color: AppColors.iceWhiteColor,
+                          color: Colors.white,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -382,7 +376,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: "Inter",
                       fontSize: 14,
-                      color: AppColors.iceWhiteColor,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -416,7 +410,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
             Text(
               'Protocolo: ${manifestacao['protocolo']}',
               style: TextStyle(
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
                 fontFamily: "Inter",
                 fontSize: 14,
                 color: AppColors.blueColor1,
@@ -515,7 +509,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: "Inter",
                       fontSize: 14,
-                      color: AppColors.iceWhiteColor,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -531,7 +525,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: "Inter",
                       fontSize: 14,
-                      color: AppColors.iceWhiteColor,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -552,7 +546,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
         statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -564,10 +558,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -575,7 +566,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                       'Nova Manifestação',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
@@ -733,7 +724,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                               onPressed: selecionarMidia,
                               icon: const Icon(
                                 Icons.attach_file,
-                                color: AppColors.iceWhiteColor,
+                                color: Colors.white,
                               ),
                               label: const Text(
                                 'Escolher mídia',
@@ -741,7 +732,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                                   fontWeight: FontWeight.normal,
                                   fontFamily: "Inter",
                                   fontSize: 14,
-                                  color: AppColors.iceWhiteColor,
+                                  color: Colors.white,
                                 ),
                               ),
                               style: ElevatedButton.styleFrom(
@@ -772,7 +763,7 @@ class _OuvidoriaPageState extends State<OuvidoriaPage> {
                             fontWeight: FontWeight.bold,
                             fontFamily: "Inter",
                             fontSize: 14,
-                            color: AppColors.iceWhiteColor,
+                            color: Colors.white,
                           ),
                         ),
                       ),

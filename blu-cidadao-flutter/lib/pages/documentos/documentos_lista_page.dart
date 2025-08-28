@@ -38,7 +38,7 @@ class DocumentosListaPage extends StatelessWidget {
         statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             // 🔹 Cabeçalho azul
@@ -51,10 +51,7 @@ class DocumentosListaPage extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -62,7 +59,7 @@ class DocumentosListaPage extends StatelessWidget {
                       titulo,
                       style: const TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -83,7 +80,7 @@ class DocumentosListaPage extends StatelessWidget {
                         consultaItem.nome.isNotEmpty)
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.borderColor.withOpacity(0.3),
+                          color: AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -128,7 +125,7 @@ class DocumentosListaPage extends StatelessWidget {
                     if (titulo == 'Título de Eleitor')
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.borderColor.withOpacity(0.3),
+                          color: AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -186,7 +183,7 @@ class DocumentosListaPage extends StatelessWidget {
                     if (titulo == 'Título de Eleitor')
                       Container(
                         decoration: BoxDecoration(
-                          color: AppColors.borderColor.withOpacity(0.3),
+                          color: AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.all(16),
@@ -250,7 +247,7 @@ class DocumentosListaPage extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       children: outrosDocumentos.map((documento) {
                         return Material(
-                          color: AppColors.borderColor.withOpacity(0.3),
+                          color: AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(16),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(16),

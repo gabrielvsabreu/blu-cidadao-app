@@ -10,7 +10,7 @@ class OnboardingPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: AppColors.iceWhiteColor,
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           // Stack para imagem + sobreposição da caixa branca
@@ -31,7 +31,7 @@ class OnboardingPage extends StatelessWidget {
                 child: Container(
                   height: 40,
                   decoration: const BoxDecoration(
-                    color: AppColors.iceWhiteColor,
+                    color: Colors.white,
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(24),
                     ),
@@ -53,7 +53,7 @@ class OnboardingPage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-              decoration: const BoxDecoration(color: AppColors.iceWhiteColor),
+              decoration: const BoxDecoration(color: Colors.white),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -101,7 +101,7 @@ class OnboardingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   SizedBox(
-                    width: double.infinity,
+                    width: 300,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.blueColor1,
@@ -123,7 +123,7 @@ class OnboardingPage extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 16,
-                            color: AppColors.iceWhiteColor,
+                            color: Colors.white,
                           ),
                           children: [
                             TextSpan(text: 'Entrar com '),

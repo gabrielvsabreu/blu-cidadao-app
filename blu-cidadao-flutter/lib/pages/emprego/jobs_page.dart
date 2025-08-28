@@ -91,7 +91,7 @@ class _JobsPageState extends State<JobsPage> {
       if (mounted) {
         setState(() => isLoading = false);
       }
-      print('Erro ao buscar empregos: $e');
+      print('Erro ao buscar: $e');
     }
   }
 
@@ -104,7 +104,7 @@ class _JobsPageState extends State<JobsPage> {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             // Cabeçalho azul
@@ -117,17 +117,14 @@ class _JobsPageState extends State<JobsPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.whiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
                     Text(
                       'Vagas de Emprego',
                       style: GoogleFonts.inter(
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -148,11 +145,11 @@ class _JobsPageState extends State<JobsPage> {
                       controller: _searchController,
                       style: GoogleFonts.inter(),
                       decoration: InputDecoration(
-                        labelText: 'Buscar função',
+                        labelText: 'Buscar',
                         labelStyle: GoogleFonts.inter(),
                         prefixIcon: const Icon(Icons.search),
                         filled: true,
-                        fillColor: AppColors.borderColor.withOpacity(0.3),
+                        fillColor: AppColors.lightGrey,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
@@ -176,9 +173,7 @@ class _JobsPageState extends State<JobsPage> {
                           ),
                           selected: jobType == 'all',
                           selectedColor: AppColors.blueColor1,
-                          backgroundColor: AppColors.borderColor.withOpacity(
-                            0.3,
-                          ),
+                          backgroundColor: AppColors.lightGrey,
                           onSelected: (_) {
                             setState(() => jobType = 'all');
                             loadJobs();
@@ -265,9 +260,7 @@ class _JobsPageState extends State<JobsPage> {
                                     ),
                                     padding: const EdgeInsets.all(16),
                                     decoration: BoxDecoration(
-                                      color: AppColors.borderColor.withOpacity(
-                                        0.3,
-                                      ),
+                                      color: AppColors.lightGrey,
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Column(

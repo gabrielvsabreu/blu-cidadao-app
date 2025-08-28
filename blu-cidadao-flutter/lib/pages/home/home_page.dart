@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.borderColor.withOpacity(0.3),
+          color: AppColors.lightGrey,
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.all(12),
@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
         statusBarBrightness: Brightness.light,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: Colors.white,
         drawer: Drawer(
           child: Column(
             children: [
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                       'ID: 2984000063',
                       style: GoogleFonts.inter(
                         fontSize: 14,
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Expanded(
                 child: Container(
-                  color: AppColors.whiteColor,
+                  color: Colors.white,
                   child: ListView(
                     padding: const EdgeInsets.symmetric(
                       vertical: 24,
@@ -364,14 +364,11 @@ class _HomePageState extends State<HomePage> {
                   // 🔹 Campo de busca dentro da caixa azul
                   TextField(
                     onChanged: updateSearch,
-                    style: GoogleFonts.inter(color: AppColors.whiteColor),
+                    style: GoogleFonts.inter(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: 'Digite o serviço que deseja...',
                       hintStyle: GoogleFonts.inter(color: Colors.white70),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                        color: AppColors.whiteColor,
-                      ),
+                      prefixIcon: const Icon(Icons.search, color: Colors.white),
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.15),
                       contentPadding: const EdgeInsets.symmetric(vertical: 16),

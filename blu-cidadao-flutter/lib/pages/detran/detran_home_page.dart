@@ -17,7 +17,7 @@ class VeiculosHomePage extends StatelessWidget {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -29,10 +29,7 @@ class VeiculosHomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -40,7 +37,7 @@ class VeiculosHomePage extends StatelessWidget {
                       'DETRAN-SC',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),

@@ -16,7 +16,7 @@ class EducacaoPage extends StatelessWidget {
         statusBarBrightness: Brightness.dark, // iOS: texto branco
       ),
       child: Scaffold(
-        backgroundColor: AppColors.iceWhiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -28,10 +28,7 @@ class EducacaoPage extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.iceWhiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -39,7 +36,7 @@ class EducacaoPage extends StatelessWidget {
                       'Educação',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.iceWhiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -56,7 +53,7 @@ class EducacaoPage extends StatelessWidget {
                     context,
                     titulo: 'Ensino Fundamental e Médio',
                     subtitulo:
-                        'Matriculas, intenção de vaga e convocações para as vagas do Ensio Fundamental e Médio',
+                        'Encontre escolas da Educação Básica em Blumenau',
                     icone: Icons.school,
                     destino: EscolasPage(
                       titulo: 'Escolas do Ensino Fundamental e Médio',
@@ -66,7 +63,7 @@ class EducacaoPage extends StatelessWidget {
                   _buildServicoCard(
                     context,
                     titulo: 'EJA - Educação de Jovens e Adultos',
-                    subtitulo: 'Matrícula na Educação de Jovens e Adultos',
+                    subtitulo: 'Veja as escolas que oferecem EJA em Blumenau.',
                     icone: Icons.people_alt,
                     destino: EscolasEjaPage(
                       titulo: 'EJA - Educação de Jovens e Adultos',
@@ -95,7 +92,7 @@ class EducacaoPage extends StatelessWidget {
         height: 160,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: BoxDecoration(
-          color: AppColors.borderColor.withOpacity(0.3),
+          color: AppColors.lightGrey,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(

@@ -28,7 +28,7 @@ class SaudePage extends StatelessWidget {
       ),
 
       child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -40,10 +40,7 @@ class SaudePage extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppColors.whiteColor,
-                      ),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const SizedBox(width: 8),
@@ -51,7 +48,7 @@ class SaudePage extends StatelessWidget {
                       'SAÚDE',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -73,7 +70,7 @@ class SaudePage extends StatelessWidget {
                       height: 120,
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       decoration: BoxDecoration(
-                        color: AppColors.borderColor.withOpacity(0.3),
+                        color: AppColors.lightGrey,
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
