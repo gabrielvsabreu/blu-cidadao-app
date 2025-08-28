@@ -1,4 +1,4 @@
-# 📱 BluCidadão
+# ![BluCidadão](./screenshots/tela_inicial.png)
 
 O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços públicos de Blumenau, oferecendo praticidade, acessibilidade e transparência em um único lugar.
 
@@ -38,3 +38,5 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
 
 ## 👨‍💻 Autores
 Desenvolvido por Beatriz Conrat, Gabriel Abreu, Gabrielli Danker e Lucas Iepsen
+
+Equipe ![OneCode](./screenshots/ouvidoria.png)
