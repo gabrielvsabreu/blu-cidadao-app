@@ -73,6 +73,18 @@ O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços
   <img src="./screenshots/agua.jpg" alt="Água, Esgotoo e Energia" width="250"/>
   <img src="./screenshots/emergencia.jpg" alt="Emergência" width="250"/>
 </p>
+<br>
+<p align="center">
+  <b>Menu</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Perfil</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <b>Sobre o BluCidadão</b>
+</p>
+<p align="center">
+  <img src="./screenshots/Media.jpg" alt="Menu" width="250"/> 
+  <img src="./screenshots/perfil.jpg" alt="Perfil" width="250"/>
+  <img src="./screenshots/sobrenos.jpg" alt="Sobre o BluCidadão" width="250"/>
+</p>
 
 ## 🛠️ Tecnologias Utilizadas
 
