@@ -1,4 +1,7 @@
-# ![BluCidadão](./screenshots/blucidadao.png)
+# <p align="center">
+  <img src="./screenshots/blucidadao.png" alt="BluCidadão" width="300"/>
+</p>
+
 
 O *BluCidadão* é um aplicativo inovador que centraliza os principais serviços públicos de Blumenau, oferecendo praticidade, acessibilidade e transparência em um único lugar.
 
